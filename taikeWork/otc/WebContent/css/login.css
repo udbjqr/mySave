@@ -1,0 +1,83 @@
+@charset "UTF-8";
+.sizing {
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.cu {
+  cursor: pointer;
+}
+.ell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.clear {
+  clear: both;
+  content: "";
+  display: table;
+  zoom: 1;
+}
+.before-cle:after {
+  clear: both;
+  content: "";
+  display: table;
+  zoom: 1;
+}
+body {
+  background-color: #f8f8f8;
+}
+.panel {
+  width: 360px;
+  height: 250px;
+  margin: 150px auto;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+.panel .panel-heading {
+  text-align: center;
+  font-size: 16px;
+  color: #333333;
+  font-weight: 700;
+  background-color: #f2f2f2;
+  border: 1px solid #d7d7d7;
+  border-bottom: 0;
+}
+.panel .panel-body {
+  background: #fff;
+  border: 1px solid #d7d7d7;
+}
+.panel .panel-body .input-group-addon {
+  background-color: #fff;
+  padding: 6px 3px 6px 12px;
+}
+.panel .panel-body .form-control {
+  border-left: 0;
+}
+.panel .panel-body .mt15 {
+  margin-top: 15px;
+}
+.panel .panel-body .form-inline {
+  font-size: 13px;
+  color: #333333;
+}
+.panel .panel-body .form-inline .checkbox {
+  line-height: 22px;
+}
+.panel .panel-body .form-inline .checkbox input {
+  float: left;
+  margin-right: 5px;
+}
+.panel .panel-body .form-inline .prompt {
+  float: right;
+  margin: 0;
+  width: 260px;
+  height: 22px;
+  font-size: 14px;
+  color: #ff0000;
+}
+.panel .panel-body .btn-block {
+  background-color: #009900;
+  color: #fff;
+  margin-top: 8px;
+}

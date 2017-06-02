@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="activiti-bpmn-converter" />
+        <module name="activiti-bpmn-layout" />
+        <module name="activiti-bpmn-model" />
+        <module name="activiti-engine" />
+        <module name="activiti-image-generator" />
+        <module name="activiti-json-converter" />
+        <module name="activiti-process-validation" />
+        <module name="activiti-spring" />
+        <module name="explorer" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="activiti-bpmn-converter" target="1.8" />
+      <module name="activiti-bpmn-layout" target="1.8" />
+      <module name="activiti-bpmn-model" target="1.8" />
+      <module name="activiti-engine" target="1.8" />
+      <module name="activiti-image-generator" target="1.8" />
+      <module name="activiti-json-converter" target="1.6" />
+      <module name="activiti-process-validation" target="1.8" />
+      <module name="activiti-spring" target="1.8" />
+      <module name="explorer" target="1.8" />
+      <module name="officeplatform" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

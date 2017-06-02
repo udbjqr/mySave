@@ -1,0 +1,164 @@
+
+.modalRemark{
+    min-height: 4.4rem;
+    height: auto;
+    padding: 0 .8rem;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+.modalRemark:after{clear: both;content:"";display: table;zoom:1}
+.remark-tle{
+    width: 25%;
+    font-size: 1.4rem;
+    min-height: 3.2rem;
+    line-height: 3.2rem;
+    color: #666;
+    float: left;
+    padding: 0.6rem 0;
+}
+.remark_box{
+    width:75%;
+    height:auto;
+    min-height: 3.2rem;
+    float: left;
+    padding: 0.6rem 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.CustDetails{
+margin-bottom:7rem;
+}
+
+.profile dt.customerphoto {
+    font-size: 0;
+}
+.customerphoto img{
+width:95%;
+}
+.customer_info{
+padding-left:1rem;
+}
+.customer_info h2{
+font-size:1.6rem;
+color: #00B034;
+}
+.Customer_Attrbt{
+font-size:1.3rem;
+color: #999;
+margin-top:1rem;
+}
+
+.profile dt.customer_dress{
+    position: relative;
+    width:100%;
+    text-align: left;
+    padding-left:2rem;
+}
+
+.customer_dress::before{
+content: "";
+display: block;
+position: absolute;
+top:.6rem;
+left:1rem;
+width:1rem;
+height:2rem;
+font-size: 0;
+background: url("../../images/mobile/19location.png") no-repeat 0rem .5rem;
+background-size: 1rem auto;
+}
+
+.customer_title{
+    font-size: 1.5rem;
+    height:4.5rem;
+    line-height: 4.5rem;
+    background-color: #EEEEEE;
+    color: #E86419;
+    padding-left: 1.5rem;
+}
+
+
+.principal_name dt{
+background: url("../../images/mobile/21.png") no-repeat 1rem center;
+background-size: 1.5rem auto;
+padding-left:2.5rem;
+}
+
+.principal_phone dt{
+background: url("../../images/mobile/20mobilet.png") no-repeat 1rem center;
+background-size: 1.5rem auto;
+padding-left:2.5rem;
+}
+.historyNum em{
+ background-color: #999;
+ color: #FFF;
+ padding: .2rem;
+ -moz-border-radius: 50%;      /* Gecko browsers */
+-webkit-border-radius: 50%;   /* Webkit browsers */
+border-radius: 50%;           /* W3C syntax */
+font-weight: bold;
+}
+
+
+#remarkMain{
+width:100%;
+height:24rem;
+background-color: #FFFFFF;
+position:fixed;
+bottom:-26rem;
+z-index: 1000;
+box-shadow:.4px -0.5px 3px #DDD;
+}
+
+#remarkMain .remark_box{
+    overflow: hidden;
+    margin:2rem .4rem 1rem .4rem;
+}
+#remark_text{
+padding:.6rem;
+box-sizing:border-box;
+-moz-box-sizing:border-box; /* Firefox */
+-webkit-box-sizing:border-box; /* Safari */
+    width:100%;
+    border: 1px solid #DDD;
+    margin:.3rem auto;
+}
+.close{
+position: absolute;
+top:.3rem;
+right:1rem;
+}
+.fa-close{
+font-size:2.4rem;
+color:#888;
+}
+.remark_box h2{
+height:3rem;
+width:100%;
+text-align: center;
+font-size: 1.4rem;
+color: #666
+}
+.bodybg{
+    display:none;
+    width:100%;
+    height:100%;
+    position: fixed;
+    top:0;
+    left:0;
+    background: #000;
+    filter:Alpha(opacity=70);/* 只支持IE6、7、8、9 */
+    background-color: rgba(0,0,0,0.3);/* IE9、标准浏览器、IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂 */
+    z-index: 100;
+}

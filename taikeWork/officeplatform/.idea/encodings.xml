@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/activiti-bpmn-converter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/activiti-bpmn-layout" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/activiti-bpmn-model" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/activiti-engine" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/activiti-image-generator" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/activiti-json-converter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/activiti-process-validation" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/activiti-spring" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/explorer" charset="UTF-8" />
+  </component>
+</project>

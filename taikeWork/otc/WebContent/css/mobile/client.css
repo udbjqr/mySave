@@ -1,0 +1,572 @@
+.client_main{
+     margin-bottom:7rem;
+}
+
+.selectdate{
+    height:8rem;
+    padding:1px;
+}
+
+#appDate{
+    width:96%;
+    display: block;
+    height:4rem;
+    line-height: 4rem;
+    margin:2rem auto 0  auto;
+    text-indent: .4rem;
+    font-size:1.6rem;
+    text-align: center;
+    color:#666;
+    border: 1px solid #DDD;
+}
+
+#clientwrap{
+    width: 100%;
+    overflow: hidden
+}
+#client{
+    width:100%;
+    overflow:hidden;
+}
+.client_list{
+width:100%;
+overflow:hidden;
+height:auto;
+min-height: 4rem; 
+
+}
+#client .client_list:first-child{
+border-top:none;
+
+}
+#client dl{
+ border-top:none;   
+width:150%;
+overflow:hidden;
+min-height:4rem;
+line-height: 4rem;
+-webkit-transition: all 0.3s linear;
+}
+#client dl.selected {
+    -webkit-transform: translateX(-21%);
+    -webkit-transition: all 0.3s linear;
+    overflow:hidden;
+}
+
+
+#client dt {
+width:60%;   /*  62% */
+font-size: 1.4rem;
+overflow:hidden;
+text-indent: 0;
+}
+
+#client dd.isselect{
+ width:2.2rem;
+font-size:0;
+overflow:hidden;
+}
+#client dd.remvewrap{
+    width:10rem;
+    height:100%;
+    overflow:hidden;
+}
+.remvebox{
+    display: block;
+    width:20rem;
+    height:100%;
+    background-color: #FFF;
+    font-size: 1.4rem;
+    top: -0.6rem;
+    padding: .6rem 0;
+    overflow:hidden;
+}
+
+#client dd.tomarkmain{
+position: relative;     
+width:8rem;
+height:100%;
+display: table-cell;
+vertical-align:middle;
+overflow:hidden;
+padding: 0;
+}
+.tomarkwarp{
+width:10rem;
+height:inherit;
+position: absolute;
+top: 0;
+left:0;
+}
+.profile dd .tomark{
+width:50%;
+float:left;
+height:100%;
+box-sizing:border-box;
+-moz-box-sizing:border-box; /* Firefox */
+-webkit-box-sizing:border-box; /* Safari */
+text-align: center;
+margin-right: 0;
+justify-content:center;
+align-items:center;
+display:-webkit-flex;
+}
+#client_mark{  
+    color: #FFF;
+    text-align: center;
+    background-color: #FF3B2F;
+    border-right:2px solid #FFF;
+     border-left:2px solid #FF3B2F;
+}
+#client_Leave{  
+    color: #FFF;
+    text-align: center;
+    background-color: #FE9C05;
+    border-right:2px solid #FE9C05;
+     border-left:2px solid #FE9C05;
+}
+#client dd.other{
+width:auto;
+}
+#client dd a{
+    display: block;
+    width:100%;
+    height:100%;
+}
+#client dd img {
+    width:2rem;
+    top: 0;
+    bottom: 0;
+    display: block;
+    margin: auto;
+    position: absolute;
+}
+
+.client_month{
+    position: relative;
+    text-align: center;
+    height:5rem;
+    line-height: 5rem;
+}
+.currmonth{
+font-size: 1.8rem;
+color: #666;
+}
+
+.monthico{
+    display: block;
+    position: absolute;
+    height:4rem;
+   width: 3rem;
+}
+#parent{
+top:0rem;
+left:0rem;
+}
+#next{
+     top:0rem;
+   right:0rem; 
+}
+
+#parent::after, #parent::before, #next::after, #next::before{
+    position: absolute;
+    left: 1rem;
+    content: "";
+    width: 1.2rem;
+    height: .2rem;
+    background-color: #666;
+    font-size: .4rem;
+    display: inline-block;
+    font-style: normal;
+    font-weight: 400;
+}
+#parent::before {
+    top: 1.8rem;
+    transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+}
+#parent::after {
+    top: 2.6rem;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+#next::before {
+    top: 1.8rem;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(-45deg);
+}
+#next::after {
+    top: 2.6rem;
+    transform: rotate(-45deg);
+    -ms-transform: rotate(45deg);
+    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+}
+
+.curryear{
+font-size:1.2rem;
+margin-right: 1rem;
+color: #666;
+}
+
+
+.calendartitle{
+    width:99%;
+    
+    margin:auto;
+    height:4rem;
+}
+
+.calendartitle span{
+display: inline-block;
+text-align: center;
+color: #A9A9A9;
+height:4rem;
+line-height: 4rem;
+font-size: 1.4rem;
+}
+
+.calendarcont{
+    width:99%;
+    
+    margin:auto;
+    height:4rem;
+    overflow: hidden;
+}
+.calendarmain{
+height:4rem;
+}
+.calendars{
+    float:left;
+}
+.calendars span{
+display: inline-block;
+text-align: center;
+color: #666;
+height:4rem;
+line-height: 4rem;
+font-size: 1.4rem;
+}
+
+
+.currentday{
+    background: url(../../images/mobile/33.png) no-repeat center 0;
+    background-size: 4rem auto;
+}
+
+.calendars span.nocreentcolor{
+    color: #bbb;
+}
+
+#appDate{
+    display: none;
+}
+
+.calendar{
+padding-bottom:1rem;
+background-color: #FFFFFF;
+}
+
+#client .nonetworkwarp{
+margin-top:20%;
+}
+
+
+.am-modal{
+    width:90%;
+}
+
+#addpalns{
+width: 100%;
+-moz-border-radius: 0px;
+-webkit-border-radius: 0px;
+border-radius: 0px;
+}
+
+.infovideoimg h2{
+ margin-left:.8rem;   
+ line-height:normal;
+ margin:1rem;
+}
+.plantype{
+    position: absolute;
+    top:0rem;
+    left:0;
+}
+/*   ico  */
+.typeico{
+    width:2.2rem;
+    height:1.6rem;
+    overflow: hidden;
+    display: inline-block;
+    background-color: #FE9C05;
+    justify-content: center;
+   align-items: center;
+   display: -webkit-flex;
+
+}
+.mark1{
+     width:3.5rem;
+    height:1.6rem;
+    background: url(../../images/mobile/mark/mark1.png) no-repeat 0px 0px;
+    background-size: 3.2rem auto;
+}
+.mark2{
+     width:3.5rem;
+    height:1.6rem;
+    background: url(../../images/mobile/mark/mark2.png) no-repeat 0px 0px;
+    background-size: 3.2rem auto;
+}
+.mark3{
+     width:3.5rem;
+    height:1.6rem;
+    background: url(../../images/mobile/mark/mark3.png) no-repeat 0px 0px;
+    background-size: 3.2rem auto;
+}
+.mark4{
+     width:3.5rem;
+    height:1.6rem;
+    background: url(../../images/mobile/mark/mark4.png) no-repeat 0px 0px;
+    background-size: 3.2rem auto;
+}
+.mark5{
+     width:3.5rem;
+    height:1.6rem;
+    background: url(../../images/mobile/mark/mark5.png) no-repeat 0px 0px;
+    background-size: 3.2rem auto;
+}
+.mark6{
+     width:3.5rem;
+    height:1.6rem;
+    background: url(../../images/mobile/mark/mark6.png) no-repeat 0px 0px;
+    background-size: 3.2rem auto;
+}
+.mark7{
+     width:3.5rem;
+    height:1.6rem;
+    background: url(../../images/mobile/mark/mark7.png) no-repeat 0px 0px;
+    background-size: 3.2rem auto;
+}
+.flag0{
+background: url(../../images/mobile/31.png) no-repeat left 0;
+background-size: 2rem auto;
+}
+.flag1{
+background: url(../../images/mobile/30.png) no-repeat left 0;
+background-size: 2rem auto;
+}
+
+
+
+
+
+
+
+
+/*    新增门店             */
+.profile dt.productimg{
+text-indent: 0rem; 
+
+}
+.addStore{
+height:4rem;
+line-height: 4rem;
+width:100%;
+color: #666666;
+text-align: center;
+font-size: 1.3rem;
+}
+
+.addico{
+    color: #00B034;
+    margin-right:.6rem;
+}
+.addplanNames{
+    margin: 1rem 0rem 1rem .6rem;
+    width:90%;
+}
+.plantimes{
+font-size: 1.4rem;
+height: 4rem;
+line-height: 4rem;
+background-color: #EEEEEE;
+color: #E86419;
+padding-left: 1rem;
+}
+
+.prctsearch {
+    position: relative;
+    width: 90%;
+    height: 4rem;
+    margin: 1rem auto 0 auto;
+    overflow: hidden;
+}
+
+#selsectdaytime dt{
+    text-align: center;
+}
+#addclient{
+    width: 100%;
+    overflow: hidden;
+}
+#addclient dl{
+overflow: hidden;
+width: 122%;
+height: 3rem;
+-webkit-transform: translate(0,0);
+-webkit-transition: all 0.3s linear;
+border-bottom: none;
+text-indent: 0rem;
+}
+#addclient .plan_names{
+width:70%;
+
+}
+#addclient .plantype{
+font-size: 1.2rem;
+width:20%;
+
+}
+#addclient .remove{
+width:20%;
+padding: 1rem 0rem;
+}
+
+
+#addclient dl.selected{
+    -webkit-transform: translate(-18%,0);
+    -webkit-transition:all 0.3s linear;
+
+    }
+#addpalnBtn{
+width:100%; 
+-moz-border-radius: 0px;
+-webkit-border-radius: 0px;
+border-radius: 0px;
+
+
+}
+
+.profile dd.remove{
+    background-color:#FF0000;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #FFF;
+}
+
+.facaveat{
+    color: #FDFF0C;
+    font-size: 2.4rem;
+}
+
+.client_head{
+    position: fixed;
+    height:10rem;
+    width: 100%;
+    top:0;
+    background-color: #FFF;
+    z-index: 10;
+
+}
+#goods_list{
+   padding-top:10rem;
+   padding-bottom: 5rem;
+}
+
+.addplan_customer{
+    position: relative;
+    z-index: 5;
+}
+
+.isselectcustom{
+    display: block;
+    width:3rem;
+    height:2rem;
+    position: absolute;
+    
+    right:0;
+    top: 0;
+    bottom: 0;
+    margin:auto;
+    background: none;
+    background-size: 2rem;
+
+}
+
+.isselectcurrent {
+     background: url(../../images/mobile/29.png) no-repeat center;
+     background-size: 2rem;
+}
+.toselectday{
+   
+    width: 14rem;
+    height:3rem;
+   
+   margin:auto;
+    font-size:1.2rem;
+     -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+     border-radius: 6px;
+    border: 1px solid #00B034;
+    margin-top:.8rem;
+}
+.toselectday span{
+
+width:7rem;
+height:3rem;
+line-height:3rem;
+display: block;
+color: #00B034;
+float:left;
+
+}
+.toselectday span.currentstime{
+background-color: #00B034;
+color: #FFF;
+
+}
+#day_am{
+  border-right: none;  
+}
+
+.toselectday span.setdaycurrent{
+background-color: #00B034;
+color:#FFF;
+
+}
+
+#addcusbtn {
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    margin:0;
+    z-index: 29;
+}
+
+.plantype img{
+    width:2rem;
+}
+.infofile{
+    position: relative;
+}
+
+.plantip{
+    margin-top:60%;
+}
+
+#adjust{
+width:auto;
+}

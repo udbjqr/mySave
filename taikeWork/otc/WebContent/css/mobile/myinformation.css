@@ -1,0 +1,144 @@
+.Head_portrait{
+   
+    margin-top:1rem;
+}
+
+
+
+.Head_portrait dd img{
+  width:6rem;
+  height:6rem;
+   -moz-border-radius: 3rem;      /* Gecko browsers */
+    -webkit-border-radius: 3rem;   /* Webkit browsers */
+    border-radius: 3rem;
+}
+
+.profile dd span.Headportrait{
+     position: relative;
+    font-size: 0;
+}
+#userhead img{
+	width:5rem;
+}
+
+#filephoto{
+width:6rem;
+height:6rem;
+position: absolute;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+opacity: 0;
+}
+
+/* 编辑资料  */
+.profile dl.infomatiodit{
+  padding:0 1rem;
+  height:4rem;
+}
+.infoedi-ipt{
+color: #999;
+width:100%
+}
+
+.cropconter{
+    position:fixed;
+    width:100%;
+    height:100%;
+    left: 1000px;
+    top: 0;
+    right: 0;
+   bottom: 0;
+   background-color: #000;
+   z-index: 10000;
+}
+
+.crophoto{
+width:100%;
+height:100%; 
+}
+.crophoto img{
+width:100%;
+}
+
+
+.cropbtn{
+position: absolute;
+z-index: 1100;
+bottom:0;
+left:0;
+height:4rem;
+width:100%;
+}
+
+
+.cropbtn p{
+height:4rem;
+width:100%;
+background: #000;
+filter:Alpha(opacity=70);/* 只支持IE6、7、8、9 */
+background-color: rgba(0,0,0,0.3);/* IE9、标准浏览器、IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂 */
+}
+.cropbtn p *{ 
+position:relative;
+}     
+.cropbtn p span{
+display:inline-block;
+width:50%;
+height:4rem;
+line-height: 4rem;
+font-size: 1.6rem;
+text-align: center;
+color:#FFF;
+cursor: pointer;
+}
+
+#myinformation dd span{
+    font-weight: bold;
+}
+
+#operatePanel{
+  position:fixed;
+  width:100%;
+  left: 0;
+  right: 0;
+  bottom:0;
+  height:9rem;
+  background-color: #fff;
+  z-index: 10000;
+}
+.upload_block{
+  position:relative;
+}
+#filephoto{
+  position: absolute;
+  left:0;
+  top:0;
+  width:92%;
+  margin:0 2rem;
+  height:4.5rem;
+  font-size: 1.6rem;
+  text-align: center;
+  line-height: 4.5rem;
+  display: block;
+}
+.upload_btn,
+.refresh_avatar{
+  width:92%;
+  padding:0 2rem;
+  height:4.5rem;
+  font-size: 1.6rem;
+  text-align: center;
+  line-height: 4.5rem;
+  display: inline-block;
+  border-top:1px solid #E4E4E4;
+}
+#Head_portraitimg{
+text-align: center;
+overflow: hidden;
+}
+#Head_portraitimg img{
+  width:100%;
+ 
+}

@@ -1,0 +1,174 @@
+#app {
+  height: 100%;
+}
+#app > div {
+  height: 100%;
+}
+.car-icon-home {
+  width: 18px;
+  height: 16px;
+  background: url("../images/nav-icon.png") no-repeat;
+  background-position: 0 0;
+  margin: 11px 11px 0 0;
+}
+
+.car-icon-chart {
+  width: 19px;
+  height: 18px;
+  background: url("../images/nav-icon.png") no-repeat;
+  background-position: -118px 0;
+  margin: 10px 11px 0 0;
+}
+
+.car-icon-sale{
+    width: 19px;
+    height: 19px;
+    background: url("../images/nav-icon.png") no-repeat;
+    background-position: -138px 0;
+    margin: 10px 11px 0 0;
+}
+
+.car-icon-user {
+  width: 20px;
+  height: 16px;
+  background: url("../images/nav-icon.png") no-repeat;
+  background-position: -19px 0;
+  margin: 13px 11px 0 0;
+}
+.car-icon-car {
+  width: 20px;
+  height: 16px;
+  background: url("../images/nav-icon.png") no-repeat;
+  background-position: -40px 0;
+  margin: 12px 11px 0 0;
+}
+.car-icon-baodan {
+  width: 16px;
+  height: 16px;
+  background: url("../images/nav-icon.png") no-repeat;
+  background-position: -61px 0;
+  margin: 10px 13px 0 0;
+}
+.car-icon-money {
+  width: 21px;
+  height: 21px;
+  background: url("../images/nav-icon.png") no-repeat;
+  background-position: -78px 0;
+  margin: 9px 10px 0 0;
+  float: left;
+}
+.car-icon-xitong {
+  width: 17px;
+  height: 17px;
+  background: url("../images/nav-icon.png") no-repeat;
+  background-position: -100px 0;
+  margin: 10px 14px 0 0;
+}
+/*home*/
+.show-o-icon {
+  width: 64px;
+  height: 64px;
+  background: url("../images/home/home-icon.png") no-repeat;
+  background-position: 0 0;
+  margin: 12px 0 0 20px;
+}
+.show-w-icon {
+  width: 64px;
+  height: 64px;
+  background: url("../images/home/home-icon.png") no-repeat;
+  background-position: -65px 0;
+  margin: 12px 0 0 20px;
+}
+.show-t-icon {
+  width: 64px;
+  height: 64px;
+  background: url("../images/home/home-icon.png") no-repeat;
+  background-position: -130px 0;
+  margin: 12px 0 0 20px;
+}
+.home-p-icon {
+  width: 64px;
+  height: 64px;
+  background: url('../images/home/home-icon.png') no-repeat;
+  background-position: -195px 0;
+  display: inline-block;
+  float: left;
+  margin: 5px 10px 0 0;
+}
+.home-b-icon {
+  width: 64px;
+  height: 64px;
+  background: url('../images/home/home-icon.png') no-repeat;
+  background-position: -195px -16px;
+  display: inline-block;
+  float: left;
+  margin: 5px 10px 0 0;
+}
+
+.car-icon-baodan{
+  width: 18px;
+  height: 18px;
+  background: url("../images/nav-icon.png") no-repeat;
+  background-position: -158px 0;
+  margin: 10px 14px 0 0;
+}
+
+
+
+
+/*member*/
+.caret-icon {
+  background: url('../images/down.png') no-repeat;
+  background-position: 0 0;
+}
+.icon-add {
+  background: url('../images/member.png') no-repeat;
+  background-position: 0 0;
+}
+.c-icon a {
+  background: url('../images/member.png') no-repeat;
+}
+/*修改个人信息*/
+.icon-tle span {
+  background: url(../images/info-icon.png) no-repeat;
+}
+/*保养维修记录*/
+.maintence-info:after {
+  background: url(../images/km-icon.png) no-repeat;
+}
+
+
+.oper-edit i{background: url("../images/data-icon.png");background-position:0 0;width: 15px;height: 15px; display: inline-block;margin: 4px 10px 0 25px;float: left;}
+
+.oper-remove i{background: url("../images/data-icon.png");background-position:-16px 0;width: 14px;height: 15px;display:inline-block;margin: 4px 10px 0 22px;float: left;}
+
+
+.y0 {
+  background-position: 0 -21px;
+}
+.y1 {
+  background-position: -19px -21px;
+}
+.y2 {
+  background-position: -40px -21px;
+}
+.y3 {
+  background-position: -61px -21px;
+}
+.y4 {
+  background-position: -78px -21px;
+}
+.y5 {
+  background-position: -100px -21px;
+}
+.y6{
+    background-position: -118px -21px;
+}
+.y7{
+    background-position: -138px -21px;
+}
+.y8{
+    background-position: -158px -21px;
+}
+
+

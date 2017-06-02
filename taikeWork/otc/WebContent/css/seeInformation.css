@@ -1,0 +1,180 @@
+@charset "UTF-8";
+.sizing {
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.cu {
+  cursor: pointer;
+}
+.ell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.clear {
+  clear: both;
+  content: "";
+  display: table;
+  zoom: 1;
+}
+.before-cle:after {
+  clear: both;
+  content: "";
+  display: table;
+  zoom: 1;
+}
+.mt20 {
+  margin-top: 20px;
+}
+.mt40 {
+  margin-top: 40px;
+}
+.mb-title {
+  border-bottom: 1px solid #e4e4e4;
+  padding: 8px 0;
+  font-size: 16px;
+  color: #30a1ec;
+}
+/*查看信息样式*/
+.maintenceRecord {
+  border: 1px solid #ccc;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 5px 0;
+}
+.maintenceRecord .col-md-4 .name-info {
+  float: left;
+  padding: 5px 0 15px;
+  color: #666;
+}
+.maintenceRecord .col-md-4 .car-info {
+  float: left;
+  margin-left: 40px;
+}
+.maintenceRecord .col-md-4 .car-info .car-line {
+  line-height: 25px;
+  font-size: 12px;
+  color: #666666;
+}
+.maintenceRecord .col-md-4 .car-info .car-line span {
+  padding-right: 15px;
+}
+.maintenceRecord .btn-box {
+  width: auto;
+  margin-top: 8px;
+  display: table;
+  float: right;
+}
+.maintenceRecord .btn-box .btn-w {
+  width: 120px;
+  margin-right: 20px;
+}
+.maintenceRecord .btn-box .btn-c-o {
+  background-color: #30a1ec;
+  color: #fff;
+}
+.maintenceRecord .btn-box .btn-c-o:hover {
+  background-color: #1283ce;
+}
+.maintenceRecord .btn-box .btn-c-t {
+  border: 1px solid #30A1EC;
+  color: #30A1EC;
+  background-color: #fff;
+}
+.maintenceRecord .btn-box .btn-c-t:hover {
+  background-color: #e1e1e1;
+}
+.show-info .show-template {
+  width: auto;
+  padding-right: 10px;
+  display: table;
+}
+.show-info .show-template .km-num {
+  min-width: 80px;
+  font-size: 14px;
+  color: #333333;
+  float: left;
+  margin-right: 5px;
+}
+.show-info .show-template .maintence-info {
+  min-width: 120px;
+  border-left: 1px solid #45b8ff ;
+  padding: 0 0 30px 25px;
+  position: relative;
+  float: left;
+}
+.show-info .show-template .maintence-info:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 24px;
+  height: 18px;
+  top: 0;
+  left: -12px;
+  background-size: 100% 100%;
+}
+.show-info .show-template .maintence-info .info-o {
+  font-size: 16px;
+  color: #333333;
+}
+.show-info .show-template .maintence-info .info-t {
+  font-size: 16px;
+  color: #ff9500;
+  margin-top: 15px;
+}
+.small-tle {
+  line-height: 48px;
+  font-size: 14px;
+  color: #000000;
+}
+.viewDetails {
+  padding-left: 15px;
+}
+.viewDetails .view > label {
+  font-size: 13px;
+  color: #999999;
+  font-weight: 100;
+  margin-right: 20px;
+  width: 13%;
+  min-width: 55px;
+}
+.viewDetails .view > .show-info {
+  height: 28px;
+  width: 70%;
+  min-width: 180px;
+  font-size: 13px;
+  color: #333333;
+  display: inline-block;
+}
+.viewDetails .view > .show-info span {
+  margin-right: 15px;
+}
+.viewDetails .view .big-label {
+  width: 18%;
+  min-width: 88px;
+}
+.btn-box {
+  width: auto;
+}
+.btn-box .btn-w {
+  width: 120px;
+  margin-right: 20px;
+}
+.btn-box .btn-c-o {
+  background-color: #30a1ec;
+  color: #fff;
+}
+.btn-box .btn-c-o:hover {
+  background-color: #1283ce;
+}
+.btn-box .btn-c-t {
+  border: 1px solid #30A1EC;
+  color: #30A1EC;
+  background-color: #fff;
+}
+.btn-box .btn-c-t:hover {
+  background-color: #e1e1e1;
+}

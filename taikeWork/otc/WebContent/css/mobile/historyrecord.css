@@ -1,0 +1,132 @@
+.profile dt.cord_time{
+    color:#666;
+}
+
+.cord_title{
+    font-size: 1.4rem;
+    height:4.5rem;
+    line-height: 4.5rem;
+    background-color: #EEEEEE;
+    color: #E9631A;
+    padding-left: 1.5rem;
+}
+.cord_titles{
+    font-size: 1.4rem;
+    height:3rem;
+    line-height: 3rem;
+    background-color: #FFFFFF;
+    color: #E9631A;
+    padding-left: 1.5rem;
+}
+
+.signintime{
+color: #00B033;
+}
+.profile.signintp dl dt{
+    width:30%;
+}
+.profile.signintp dl dd{
+    width:70%;
+}
+.cord_time em{
+color: #04B03A;
+margin-left:1.5rem;
+}
+.profile dt.corditem_photo{
+position: relative;
+font-size: 0;
+}
+.corditem_photo em{
+position: absolute;
+display: block;
+width:auto;
+min-width:2rem;
+height:auto;
+bottom:1rem;
+right:1rem;
+text-align: center;
+ font-size: 1.3rem;
+ padding:.4rem;
+ text-indent: 0;
+ background-color: #333;
+ color:#FFF;
+ -moz-border-radius: 10px;      /* Gecko browsers */
+-webkit-border-radius: 10px;   /* Webkit browsers */
+border-radius: 10px;           /* W3C syntax */ 
+font-weight: bold;   
+}
+.corditem_photo img{
+    width:10rem;
+}
+.corditem_info{
+    padding-left:1rem;
+}
+.corditem_info h2{
+    display: block;
+    font-size: 1.5rem;
+    color: #333;
+    
+
+}
+
+.productTitle{
+font-size: 1.5rem;
+color: #333;
+height:2rem;
+padding: 1rem 0rem .6rem 1rem;
+
+}
+
+.productsupplier{
+  font-size: 1.1rem;
+  color: #999;
+  padding-left:1rem;
+}
+.specification{
+ font-size: 1.3rem;
+display: block;
+width: auto;
+min-width: 33.3%;
+min-height: 3rem;
+clear: both;
+text-indent: 0rem;
+padding-left:.6rem;
+}
+.corditem_info1 em{
+    font-size: 1.3rem;
+    display:block;
+    
+    width:90%;
+    height:3rem;
+    line-height: 3rem;
+}
+
+
+
+.detinfo1 span{
+    font-size: 1.3rem;
+    display:block;
+    float: left;
+    width:auto;
+    min-width:33.3%;
+    height:3rem;
+    line-height: 3rem;
+}
+
+.detinfo2 span{
+font-size: 1.3rem;
+    display:block;
+    float: left;
+    width:auto;
+    min-width:50%;
+    height:3rem;
+    line-height: 3rem;
+}
+
+.profile.remark dt{
+    font-size: 1.4rem;
+    color:#666;
+    margin-bottom:2rem;
+    padding:.4rem .8rem .4rem .6rem;
+    line-height:1.8rem;
+}

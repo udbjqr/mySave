@@ -1,0 +1,283 @@
+﻿.layermbox {
+	position: relative;
+	z-index: 19891014
+}
+.layermboxs {
+	position: relative;
+	z-index: 19891014
+}
+
+.layermmain,.laymshade {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%
+}
+
+.layermbtn span,.layermchild {
+	display: inline-block;
+	position: relative
+}
+
+.laymshade {
+	background-color: rgba(0,0,0,.5);
+	pointer-events: auto
+}
+
+.layermmain {
+	display: table;
+	font-family: Helvetica,arial,sans-serif;
+	pointer-events: none
+}
+
+.layermmain .section {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center
+}
+
+.layermchild {
+	color:#5D5D5D;
+	text-align: left;
+	background-color: #FFF;
+	font-size: 1.4rem;
+	border-radius: 6px;
+	box-shadow: 0 0 8px rgba(0,0,0,.1);
+	pointer-events: auto;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-duration: .18s;
+	animation-duration: .18s;
+	top:0;
+	bottom:0;
+	margin:auto;
+}
+
+.layermcont{
+	
+	padding: 2rem 3rem;
+	line-height: 2.2rem;
+	text-align: center;
+	width: auto;
+    min-width: 24rem;
+}
+
+.layermborder {
+	border: 1px solid #DDD;
+}
+
+@-webkit-keyframes bounceIn {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(.5);
+		transform: scale(.5)
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: scale(1);
+		transform: scale(1)
+	}
+}
+
+.layermanim {
+	animation-name: bounceIn;
+	-webkit-animation-name: bounceIn
+}
+
+.layermbox0 .layermchild {
+	max-width: 90%;
+	min-width: 2rem;
+	overflow: hidden;
+    height: auto;
+}
+
+.layermbox1 .layermchild {
+	border: none;
+	border-radius: 0
+}
+
+.layermbox2 .layermchild {
+	width: auto;
+	max-width: 26rem;
+	min-width: 4rem;
+	border: none;
+	background: 0 0;
+	box-shadow: none;
+	color: #fff
+}
+
+.layermchild h3 {
+	padding: 0 4.5rem 0 1rem;
+	height: 5rem;
+	line-height: 5rem;
+	font-size: 1.6rem;
+	font-weight: 400;
+	border-radius: 6px 6px 0 0;
+	border-bottom: 1px solid #EBEBEB
+}
+
+.layermbtn span,.layermchild h3 {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap
+}
+
+
+
+.layermbox1 .layermcont {
+	padding: 0;
+	text-align: left
+}
+
+.layermbox2 .layermcont {
+	text-align: center;
+	padding: 0;
+	line-height: 0
+}
+
+.layermbox2 .layermcont i {
+	width: 2.5rem;
+	height: 2.5rem;
+	margin-left: .8rem;
+	display: inline-block;
+	background-color: #fff;
+	border-radius: 100%;
+	-webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+	animation: bouncedelay 1.4s infinite ease-in-out;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both
+}
+
+@-webkit-keyframes bouncedelay {
+	0%,100%,80% {
+		transform: scale(0);
+		-webkit-transform: scale(0)
+	}
+
+	40% {
+		transform: scale(1);
+		-webkit-transform: scale(1)
+	}
+}
+
+@keyframes bouncedelay {
+	0%,100%,80% {
+		transform: scale(0);
+		-webkit-transform: scale(0)
+	}
+
+	40% {
+		transform: scale(1);
+		-webkit-transform: scale(1)
+		
+	}
+}
+
+.layermbox2 .layermcont i:first-child {
+	margin-left: 0;
+	-webkit-animation-delay: -.32s;
+	animation-delay: -.32s
+}
+
+.layermbox2 .layermcont i.laymloadtwo {
+	-webkit-animation-delay: -.16s;
+	animation-delay: -.16s
+}
+
+.layermbox2 .layermcont>div {
+	line-height: 2.2rem;
+	padding-top: .7rem;
+	margin-bottom: 2rem;
+	font-size: 1.4rem
+}
+
+.layermbtn {
+	position: relative;
+	height: 4rem;
+	line-height: 4rem;
+	font-size: 0;
+	text-align: center;
+	border-top: 1px solid #EBEBEB
+}
+
+.layermbtn span {
+	width: 50%;
+	text-align: center;
+	font-size: 1.3rem;
+	color:#3399FE;
+	cursor: pointer;
+	border-radius: 0 6px 0 0
+}
+
+.layermbtn span:first-child {
+	/*height: 3.9rem; */
+	background-color: #fff;
+	border-radius: 0 0 0 6px
+}
+
+.layermbtn:before {
+	content: '\20';
+	position: absolute;
+	width: .1rem;
+	height: 3.9rem;
+	left: 50%;
+	top: 0;
+	background-color: #EBEBEB
+}
+
+.layermend {
+	position: absolute;
+	right: .7rem;
+	top: 1rem;
+	width: 3rem;
+	height: 3rem;
+	border: 0;
+	font-weight: 400;
+	background: 0 0;
+	cursor: pointer;
+	-webkit-appearance: none;
+	font-size: 3rem
+}
+
+.layermend::after,.layermend::before {
+	position: absolute;
+	left: .5rem;
+	top: 1.5rem;
+	content: '';
+	width: 1.8rem;
+	height: .1rem;
+	background-color: #999;
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	border-radius: 6px
+}
+
+.layermend::after {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg)
+}
+.tip{
+font-size:1.3rem;
+color:#FFF;
+width:auto;
+min-width:1rem;
+height:6rem;
+line-height:6rem;
+padding:0 1rem;
+-moz-border-radius: 6px 6px;      /* Gecko browsers */
+-webkit-border-radius: 6px;   /* Webkit browsers */
+ border-radius: 6px;           /* W3C syntax */ 
+background: #000000;
+filter:Alpha(opacity=70);/* 只支持IE6、7、8、9 */
+background-color: rgba(0,0,0,0.7);/* IE9、标准浏览器、IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂 */
+*zoom:1; /* 激活IE6、7的haslayout属性，让它读懂Alpha */
+border:none;
+}
+.tip *{ 
+	position:relative;
+	}   
+.tip .layermcont{
+min-width: 9rem;
+}

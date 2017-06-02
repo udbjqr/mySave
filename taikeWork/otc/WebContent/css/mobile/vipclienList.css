@@ -1,0 +1,150 @@
+#vipcustomer dl{
+display:block;
+
+height:8.4rem;
+}
+
+#vipcustomer dl a {
+    display: block;
+    width: 100%;
+    padding:0;
+}
+#vipcustomer dd{
+display:block;
+width:100%;
+height:4rem;
+line-height: 4rem;
+}
+#vipcustomer dd span{
+font-size:1.3rem;
+}
+#vipcustomer dt{
+display:block;
+width:100%;
+height:4rem;
+border-bottom: 1px solid #E4E4E4;
+}
+
+#vipcustomer dt span{
+display:block;
+width: auto;
+height:4rem;
+line-height: 4rem;
+color: #333;
+font-weight: bold;
+}
+.customername{
+    margin-left:1rem;
+    float:left;
+}
+.customerpost{
+     margin-right:1rem;
+    text-align: right;
+    float:right;
+}
+.addvip {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: 1rem;
+    width: 1.8rem;
+    height: 1.8rem;
+   
+}
+
+.addvip::after,.addvip::before {
+    position: absolute;
+    content: "";
+    background-color: #FE0B00;  
+    display:block;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0rem;
+    border:none;
+}
+.addvip::before{
+     width:1.8rem;
+     height:.2rem;
+     top:.8rem;
+}
+.addvip::after{
+ width:.22rem;
+ height:1.8rem;
+ top:0rem;
+ left:.79rem; 
+}
+.birthdayico{
+display: inline-block;
+width:1rem;
+height:1rem;
+}
+.birthdayico img{
+width: 100%;
+}
+/*  详情  */
+.vipcustomermain{
+    margin:1rem .6rem;
+    height:auto;
+    min-height:13rem;
+    -moz-border-radius: 8px;      /* Gecko browsers */
+    -webkit-border-radius: 8px;   /* Webkit browsers */
+     border-radius: 8px;           /* W3C syntax */	
+    background-color: #FFF;
+    padding:0 .8rem ;
+}
+
+.vipcustomermain h2{
+ font-size: 1.3rem;
+ height:3.6rem;
+ line-height: 3.6rem;
+ color: #56BC50;
+}
+.vipcustomerinfo{
+    height:3rem;
+}
+.vipcustomerinfo span{
+display: block;
+font-size: 1.2rem;
+width: 50%;
+height:3rem;
+line-height: 3rem;
+float:left;
+overflow: hidden;
+}
+.old{
+text-align: right;
+}
+.vipcustomerinfo .email{
+    width: 100%;
+    height:3rem;
+    line-height: 3rem;
+}
+.schedulemain{
+  margin:1rem .6rem;
+    width:auto;
+    height:auto;
+    min-height:13rem;  
+}
+#vipcustomerinfo dt{
+width:26%;
+color: #FF823E;
+font-size: 1.2rem;
+box-sizing:border-box;
+-moz-box-sizing:border-box; /* Firefox */
+-webkit-box-sizing:border-box; /* Safari */
+border-right:3px solid #EEEEEE;
+text-indent: 0rem;
+text-align: center;
+}
+
+#vipcustomerinfo dd{
+width:73%;
+}
+#vipcustomerinfo dd span{
+display:block;
+float:none;
+margin:.5rem 1.2rem;
+font-size: 1.2rem;
+line-height:2rem;
+}

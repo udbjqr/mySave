@@ -1,0 +1,28 @@
+.Upload_photo {
+    height: auto;
+    min-height: 12rem;
+    padding-bottom: 2rem;
+    overflow: auto;
+    text-align: center;
+}
+.Upload_btns {
+    position: relative;
+    width: 8rem;
+    height: 6rem;
+    margin-top: 2.5rem;
+    background: url("/otc/images/mobile/28.png") no-repeat 0 0;
+    background-size: 8rem auto;
+    margin-left: 2rem;
+    clear: both;
+}
+
+#filephoto {
+    width: 8rem;
+    height: 6rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+}

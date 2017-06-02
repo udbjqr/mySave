@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="explorer:war">
+    <output-path>$PROJECT_DIR$/modules/explorer/target</output-path>
+    <root id="archive" name="OAExplorer.war">
+      <element id="artifact" artifact-name="explorer:war exploded" />
+    </root>
+  </artifact>
+</component>

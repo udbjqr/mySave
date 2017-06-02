@@ -1,0 +1,12 @@
+<script id="recursion" type="text/ng-template">
+<li ng-repeat="item in uid.child" ng-controller="AssignmentPeopleCtrl">
+    <span ng-click="setlistvalue(item.name,item.id,item.type)">{{item.name}}</span>
+    <span class="showlist" ng-click="getlistul(item.id,item.type,item)" ng-if="i.type!='user'">+</span>
+    <ul 
+    ng-if="item.child" 
+    ng-include="'recursion'"
+    class="deptid"
+    ng-init="uid.child = item.child.child">
+    </ul>
+</li>
+</script>

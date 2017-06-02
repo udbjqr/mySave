@@ -1,0 +1,155 @@
+
+.max(@h){
+    width: 100%;
+    height: @h;
+}
+
+
+.mid(@w,@h,@top:0){
+    width: @w;
+    height: @h;
+    margin: @top auto 0;
+}
+
+
+.elm(@w,@h,@f:none,@bg:none){
+    width:@w;
+    height: @h;
+    float: @f;
+    background-color: @bg;
+}
+.e(@w,@h){
+    width:@w;
+    height: @h;
+}
+
+.ielm(@w,@h,@left:null){
+    width: @w;
+    height: @h;
+    display:inline-block;
+    float: @left;
+}
+
+
+.f(@s,@c){
+    font-size:@s;
+    color:@c;
+}
+
+.tran_s(@s:.3s){
+    -webkit-transition:all @s ease;
+    -moz-transition:all @s ease;
+    -ms-transition:all @s ease;
+    -o-transition:all @s ease;
+    transition:all @s ease;
+}
+
+.tran_f(@b){
+   -webkit-transform: @b;
+   -moz-transform: @b;
+   -ms-transform: @b;
+   -o-transform: @b;
+    transform: @b;
+}
+
+.radius(@y:5px){
+	-webkit-border-radius:@y;
+	-moz-border-radius:@y;
+	-ms-border-radius:@y;
+	-o-border-radius:@y;
+	   border-radius:@y;
+}
+
+.shadow(@y){
+    -webkit-box-shadow:@y;
+    -moz-box-shadow:@y;
+    -ms-box-shadow:@y;
+    -o-box-shadow:@y;
+       box-shadow:@y;
+}
+
+.sizing{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+
+
+.pos(a,@x,@y){
+	position:absolute;
+	left:@x;
+	top:@y;
+}
+
+
+.pos(f,@x,@y){
+	position:fixed;
+	left:@x;
+	top:@y;
+}
+
+
+
+.i_po(@x,@y){
+    background-image: url('/images/nav-icon.png')no-repeat;
+    background-position:@x @y;
+}
+
+.img-po(@url,@x,@y){
+    background: url(@url)no-repeat;
+    background-position:@x @y;
+}
+
+
+.ce(@h){
+    text-align: center;
+    line-height: @h;
+}
+
+.cu{
+    cursor: pointer;
+}
+
+
+.opa(@o){
+    opacity: @o;
+    //filter:alpha(opacity=(@o*100));
+}
+
+.ell{
+    overflow:hidden;text-overflow:ellipsis;white-space: nowrap;
+}
+
+.ells(@n){
+    display:-webkit-box;overflow:hidden;text-overflow:ellipsis;
+    word-break:break-all;-webkit-box-orient:vertical;-webkit-line-clamp:@n;
+
+}
+
+.b1(@c){
+    border:1px solid @c;
+}
+
+.clear{
+    clear: both;content:"";display: table;zoom:1
+}
+
+.before-cle{
+    &:after{.clear;}
+}
+
+.user-select{
+      -moz-user-select:none;
+      -webkit-user-select:none;
+      user-select:none;
+}
+
+@colorb:#f8f8f8;//整体颜色
+@colorx:#30A1EC;//选中颜色
+@colorf:#6E6E6E;//文字颜色
+@c090:#090;//整体色调
+@f333:#333;//文字颜色2

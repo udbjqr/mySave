@@ -1,0 +1,114 @@
+.planreview_main{
+     width:100%;
+     overflow: hidden;
+     margin-bottom: 1rem;
+}
+.profile dt.planreviewdt{
+    width:80%;
+}
+.profile dl{
+    overflow: hidden;
+}
+.reviewico{
+position: relative;
+display: inline-block;
+width:1rem;
+height:1rem;
+
+}
+.isassess{
+    position: absolute;
+    top:-.4rem;
+    left:0rem;
+    color:#FE0100;
+    font-size: .8rem
+}
+
+.profile dt.plandt{
+    text-indent: 0rem;
+}
+.Planreviewtime {
+    font-size: 1.4rem;
+    height: 4rem;
+    line-height: 4rem;
+    background-color: #EEEEEE;
+    color: #E86419;
+    padding-left: 1rem;
+}
+.plan_name{
+    margin-right:2.5rem;
+    margin-left:.6rem
+}
+#Planreviewbtn{
+    position: fixed;
+    height: 4.5rem;
+    width:100%;
+    
+    bottom: 0rem;
+    left:0rem;
+}
+.review_btn{
+    display: inline-block;
+    width:50%;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    border: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    margin: 0rem auto;
+}
+#reviewbtnback{
+background: #858585;
+}
+
+#toreviewbtn{
+background: #00B134;
+}
+
+
+/* 弹出框       */
+.revietip{
+ width:96%;
+ margin-top:2rem;
+ top:1rem;
+ z-index: 9999;   
+}
+.revietip .layermcont {
+    padding: 1rem 1rem;
+    line-height: 2.2rem;
+    text-align: center;
+    width: auto;
+    text-align: left;
+    min-width: 24rem;
+}
+.revietip .layermcont h2 {
+text-align: center;
+margin:1rem auto;
+}
+.layermend {
+    position: absolute;
+    right: .7rem;
+    top: .1rem;
+    width: 3rem;
+    height: 3rem;
+    border: 0;
+    font-weight: 400;
+    background: 0 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+    font-size: 2rem;
+}
+.back_title{
+    font-size: 1.3rem;
+    height:3.2rem;
+    line-height:3.2rem;
+}
+.ant-input{
+    width:96%;
+    font-size: 1.2rem;
+    color: #666;
+    border: 1px solid #E4E4E4;
+    padding:.6rem;
+  
+}

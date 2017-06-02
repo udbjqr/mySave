@@ -1,0 +1,16 @@
+
+.remark_box{
+    height:auto;
+    line-height:6rem;
+    padding: .4rem .6rem;
+}
+
+#remark_text{
+    font-size: 1.4rem;
+    color:#777;
+    width:98%;
+    text-indent: .6rem;
+    border: none;
+    outline:none;
+    resize:none;
+}

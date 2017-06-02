@@ -1,0 +1,85 @@
+@charset "UTF-8";
+@import "common.less";
+html{font-family:'Microsoft Yahei';}
+
+.mt15{margin-top: 15px}
+.mb5{margin-bottom: 5px;}
+
+.login{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.login-box{
+    .e(412px,286px);
+    margin:10% auto 0;
+    padding:25px 28px 0;
+    background-color: #fff;
+    .radius(8px);
+}
+
+.login-form{
+    .e(358px,44px);
+    padding-left: 15px;
+    border: 0;
+    outline: none;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+}
+
+.validateInput{
+    .e(170px,44px);
+    padding-left: 15px;
+    border: 0;
+    outline: none;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+}
+
+.updateImg{
+    padding-left: 15px;
+    cursor: pointer;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+.login-checkbox{line-height: 22px;
+    label{font-weight: 100;
+        input{float: left;margin-right: 5px;margin-top: 6px;}
+    }
+}
+
+.login-btn{
+    width: 100%;
+    height: 50px;
+    background-color: #363f46;
+    color: #fff;
+    &:hover{
+        background-color: #363f46 - 20%;
+        color: #fff;
+    }
+}
+
+.btn{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}

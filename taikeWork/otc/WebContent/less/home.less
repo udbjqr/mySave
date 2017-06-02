@@ -1,0 +1,62 @@
+@charset "UTF-8";
+@import "common.less";
+button{outline: none}
+.mt6{margin-top: 6px;}
+.home-body{
+    background-color: #ebecf1;
+    margin: 0 -50px;
+    padding:1px 50px 40px;
+}
+.show-box-one{height: 100px;background-color:#f1c643;padding-left:10%;}
+.show-box-two{height: 100px;background-color:#4bcbe4;padding-left:10%;}
+.show-box-three{height: 100px;background-color:#69ceb0;padding-left:10%;}
+.show-data{display:block;float:left;min-width: 120px;
+    span{.f(14px,#fff);margin-top: 20px;display: inline-block;line-height: 30px;}
+    h2{.f(24px,#fff)}
+}
+.show-icon{.e(100px,100px);float:right;position:relative;
+    .show-background{.opa(0.1);width:100%;height:100%;background-color: #000;}
+    img{position: absolute;top:33px;left:33px;}
+}
+
+@media screen and(max-width:1200px){
+    .show-icon{display:none;}
+}
+
+.chart-body{
+  background-color:#fff;
+  .radius(10px);overflow:hidden;
+  margin-top: 30px;
+}
+.chart-head{border-bottom:1px solid #e0e7ef;}
+.charts-box{border-bottom:1px solid #e0e7ef;margin-top: 0}
+.chart-title{.f(18px,#444);line-height: 45px;}
+.small-title{.f(16px,#666);line-height: 40px;}
+.salesSituation{width: 100%;height:350px;}
+.kpi-text{font-size: 16px;font-weight: 600;}
+.kpi-box{display:table;margin:15px auto;}
+.samll-circular{.e(100px,100px);background:linear-gradient(#107f92,#38ac47);.radius(50%);position:relative;margin:18px auto 0;
+    .md-circular{.e(94px,94px);background:#fff;position:absolute;top:3px;left:3px;.radius(50%);
+      span{.f(14px,#666);display: block;text-align: center;  line-height: 34px;  margin-top: 15px;}
+      i{.f(24px,#4ac51f);display: block;text-align: center;}
+    }
+}
+.profit-assessment{width: 100%;height:368px;}
+
+
+/*数据详情页面*/
+.labelPie{width: 100%;height:370px; padding:30px;}
+.regionBar{width: 100%;height:370px;}
+.saleBar{width: 100%;height: 340px;padding-top: 20px}
+.singleProductSales{width: 100%;height:340px;}
+
+/*tabs 修改样式*/
+.antd-drugs-tabs{background-color:@c090;color:#fff !important;}
+.antd-tabs-boder{border-bottom:4px solid @c090;}
+
+
+/*【统计报表】*/
+.salesChart{
+    width: 100%;
+    height:600px;
+}

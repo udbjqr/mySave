@@ -1,0 +1,31 @@
+
+<div class="modal" ng-controller="FormkeyPropertyPopupCtrl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="close()">&times;</button>
+			    <h3>{{'PROPERTY.PROPERTY.EDIT.TITLE' | translate:property}}</h3>
+			</div>
+			<div class="modal-body">
+				<!--p><textarea auto-focus class="form-control" ng-model="property.value" style="width:70%; height:100%; max-width: 100%; max-height: 100%; min-height: 200px"/></p-->
+				<div class="modal-body-title">功能</div>
+				<div class="modal-body-title">操作</div>
+				<div class="modal-body-left">
+					<div ng-repeat="i in moduleLies" ng-click="moduleLiesclick(i.module_id,i.module_name)" class="modal-body-moduleLies">
+						{{i.module_name}}
+					</div>
+				</div>
+				<div class="modal-body-right">
+					
+					<div ng-repeat="i in operation">
+						<input type="radio" value="{{i.handle_id}}" name="handle_id" ng-model="$parent.handle_id"/>
+						{{i.handle_name}}
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button ng-click="save()" class="btn btn-primary" translate >ACTION.SAVE</button>
+			</div>
+		</div>
+	</div>
+</div>

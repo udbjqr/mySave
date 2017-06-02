@@ -1,0 +1,431 @@
+@charset "UTF-8";
+.sizing {
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.cu {
+  cursor: pointer;
+}
+.ell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.clear {
+  clear: both;
+  content: "";
+  display: table;
+  zoom: 1;
+}
+.before-cle:after {
+  clear: both;
+  content: "";
+  display: table;
+  zoom: 1;
+}
+* {
+  word-wrap: break-word;
+}
+html {
+  -webkit-text-size-adjust: none;
+}
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+span {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font: normal 14px/24px "Microsoft Yahei", "冬青黑体简体中文 w3", "宋体";
+}
+fieldset,
+img,
+html,
+body,
+iframe {
+  border: 0;
+}
+/** 重置表格元素 **/
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+ol,
+ul {
+  list-style: none;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-weight: normal;
+  font-style: normal;
+}
+caption {
+  text-align: left;
+}
+em,
+i,
+small,
+caption,
+th {
+  font-weight: normal;
+  font-style: normal;
+  font-size: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+em,
+strong,
+b {
+  font-weight: bold;
+  font-size: 100%;
+}
+q:before,
+q:after {
+  content: '';
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+a {
+  color: #9AA2AD;
+  text-decoration: none;
+}
+a img {
+  border: none;
+}
+a,
+button {
+  outline: none;
+  border: 0;
+}
+input,
+select {
+  border: 1px solid #ccc;
+}
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+textarea,
+input,
+button,
+select {
+  outline: 0;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  font-family: inherit;
+}
+textarea {
+  overflow: auto;
+  resize: none;
+}
+.hide,
+.none {
+  display: none;
+}
+.hidden {
+  visibility: hidden;
+}
+.show,
+.block {
+  display: block;
+}
+img {
+  vertical-align: middle;
+}
+input:disabled,
+select:disabled,
+textarea:disabled {
+  background: #ccc;
+}
+html {
+  height: 100%;
+}
+body {
+  background-color: #f8f8f8;
+  height: 100%;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.red {
+  color: red;
+}
+.h50 {
+  height: 50px;
+}
+.h0 {
+  height: 0;
+  overflow: hidden;
+}
+.p-none {
+  padding: 0;
+}
+.p-r-5 {
+  padding-right: 5px;
+}
+.transformRotate {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.greenColor {
+  color: #48a530;
+}
+.higt100 {
+  height: 100%;
+}
+.header {
+  height: 50px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #e4e4e4;
+  position: relative;
+  float: initial;
+}
+.header .h50 {
+  line-height: 50px;
+}
+.header .h50 .logo {
+  font-size: 20px;
+  color: #333333;
+  padding-left: 30px;
+  display: inline-block;
+  height: 50px;
+}
+.header .h50 .logo img {
+  width: 31px;
+  height: 31px;
+  float: left;
+  margin-top: 10px;
+}
+.header .h50 .logo .logo-text {
+  color: #009900;
+  font-size: 20px;
+  font-weight: 400;
+  padding-left: 10px;
+  float: left;
+}
+.header .h50 .head-r-d div {
+  line-height: 50px;
+}
+.header .h50 .head-r-d .h-info {
+  padding: 0 10px;
+}
+.header .h50 .head-r-d .h-select {
+  padding: 8px 10px;
+}
+.header .h50 .head-r-d .h-user {
+  padding: 0 15px;
+  cursor: pointer;
+}
+.header .h50 .head-r-d .h-user:hover {
+  background-color: #dadada;
+}
+.header:after {
+  clear: both;
+  content: "";
+  display: table;
+  zoom: 1;
+}
+.nav-left {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  background-color: #f8f8f8;
+  width: 265px;
+}
+.nav-left .panel {
+  background-color: #f8f8f8;
+}
+.nav-left .panel .panel-list .collBtn {
+  display: block;
+  font-size: 14px;
+  padding-left: 10px;
+}
+.nav-left .panel .panel-list .collBtn span {
+  display: inline-block;
+}
+.nav-left .panel .panel-list .collBtn .glyphicon-menu-right {
+  margin: 11px 15px 0 0;
+}
+.nav-left .panel .panel-list:hover {
+  background: #fff;
+}
+.nav-left .panel .panel-collapse .panel-child {
+  padding-left: 0;
+}
+.nav-left .panel .panel-collapse .panel-child a {
+  display: block;
+  font-size: 13px;
+  color: #666666;
+  padding-left: 20px;
+}
+.nav-left .panel .panel-collapse .panel-child a:hover {
+  background-color: #bdbdbd;
+  color: #fff;
+}
+.car-content {
+  margin-left: 250px;
+  border-left: 1px solid #e4e4e4;
+  min-height: 100%;
+  position: relative;
+  background-color: #fff;
+  padding: 0 50px;
+  border-top: 1px solid transparent;
+}
+.list-margin {
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #e7e7e7;
+  padding-left: 20px;
+}
+.sider {
+  background-color: #fff;
+}
+.sider > .collBtn {
+  color: #009900;
+}
+.pt10 {
+  padding-top: 10px;
+}
+.mt10 {
+  margin-top: 10px;
+}
+.colorFff {
+  background-color: #ffffff;
+}
+.popup-text {
+  font-size: 16px;
+}
+.sales_dynamics {
+  border: 1px solid #e4e4e4;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  margin: 0;
+}
+.dynamic-tle {
+  font-weight: 400;
+  color: #009900;
+  font-size: 18px;
+  float: left;
+  line-height: 45px;
+}
+.dynamic-info {
+  color: #009900;
+  font-size: 14px;
+  float: right;
+  line-height: 45px;
+}
+.dynamic-head {
+  border-bottom: 1px solid #ccc;
+  background-color: #ffffff;
+}
+.dynamic-body {
+  background-color: #fff;
+  margin: 0;
+}
+.timeMenu {
+  margin: 10px 10px 10px 20px;
+}
+.productMenu {
+  margin: 10px 0 10px 0px;
+}
+.sales-charts {
+  width: 100%;
+  height: 400px;
+}
+.progress-tle {
+  padding: 60px 0;
+  color: #333;
+  font-size: 16px;
+}
+.profit-loss {
+  width: 100%;
+  height: 400px;
+}
+.record-box {
+  min-width: 93px;
+  height: 100px;
+  overflow: hidden;
+}
+.record-box > p {
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+}
+.record-one {
+  background-color: #0099ff;
+}
+.record-two {
+  background-color: #ff3333;
+}
+.record-three {
+  background-color: #cc33ff;
+}
+.record-img-box {
+  display: table;
+  margin: 15px auto 0;
+}
+.kpi-text {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 15px;
+  color: #333333;
+}
+.kpi-box {
+  display: table;
+  margin: 0 auto;
+  padding: 10px 0 30px;
+}
+.profit-assessment {
+  width: 100%;
+  height: 499px;
+}

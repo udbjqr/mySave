@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="OFF">
+	<appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %C{2} - %msg%xEx%n"/>
+		</Console>
+		<Console name="TraceConsole" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %C{2} line:%L thread:%t - %msg%xEx%n"/>
+		</Console>
+		<RollingFile name="RollingFile" fileName="${sys:catalina.home}/logs/otc/app.log"
+		             filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+			<PatternLayout pattern="%d{yyyy.MM.dd 'at' HH:mm:ss z} %-5level %C{2}  - %msg%xEx%n"/>
+			<SizeBasedTriggeringPolicy size="20 MB"/>
+		</RollingFile>
+	</appenders>
+	<loggers>
+		<asyncRoot level="info">
+			<AppenderRef  ref="Console"/>
+			<AppenderRef  ref="RollingFile"/>
+		</asyncRoot>
+	</loggers>
+</configuration>

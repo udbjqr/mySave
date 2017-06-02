@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes"/>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" href="imges/apple-touch-icon.png">
+          
+        <link href="../css/mobile/font-awesome.min.css" type="text/css" rel="stylesheet" />  
+        <link href="../css/mobile/base.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/mobile/mobile.css" rel="stylesheet" type="text/css"/>
+      
+     
+        <script type="text/javascript" src="../js/mobile/dev/zepto/zepto.min.js"></script>
+	    <script type="text/javascript" src="../js/mobile/fontsize.js"></script>
+        <script type="text/javascript" src="../js/mobile/layer/layer.js"></script> <!--弹出框js-->
+        <script src="../js/mobile/dev/swiper-3.3.1.min.js"></script>
+          <script src="../js/mobile_modules/islogin.js?v=2.1"></script>
+
+         <script type="text/javascript">
+    $(function(){
+      //加载
+      var  referrer=topreurl("avatar.html"); //上一页
+        var logining = "";
+     logining += "<div class='loading'>";
+     logining += "<div class='spinner'>"
+      logining += "<div class='bounce1'></div>"
+      logining += "<div class='bounce2'></div>"
+      logining += "<div class='bounce3'></div>"
+     logining += "</div>"
+     logining += "<P>正在从微信获取头像中..</p>";
+     logining += "</div>";
+     $("#conter").html(logining);
+
+     var code=geturl('code'); //code
+     getwxavatar(code,referrer);
+     })
+         </script>
+
+
+        </head>
+        <body>
+        <!--页面主体-->
+       <div id="conter">
+
+         </div>
+     
+      
+       </body>
+       </html>
+      

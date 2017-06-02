@@ -1,0 +1,25 @@
+.sizing {
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.cu {
+  cursor: pointer;
+}
+.ell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.clear {
+  clear: both;
+  content: "";
+  display: table;
+  zoom: 1;
+}
+.before-cle:after {
+  clear: both;
+  content: "";
+  display: table;
+  zoom: 1;
+}

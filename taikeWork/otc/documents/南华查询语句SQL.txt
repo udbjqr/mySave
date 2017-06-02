@@ -1,0 +1,16 @@
+销售明细采集:(根据salesdtlid和goodsid进行增量复制)
+select 
+a.salesdtlid,a.credate,a.customid,a.customname,a.entryid,a.goodsid,a.goodsname,
+a.goodstype,a.factoryid,a.factoryname,a.goodsunit,a.goodsqty,a.unitprice,b.costprice costprice1,
+'' costprice2,'' costprice3,a.total_line,a.goodsqty*b.COSTPRICE costtotal1,'' costtotal2,'' costtotal3
+from 
+nherpuser.BMS_SA_DTLQRY_V a,
+nherpuser.bms_sk_costingprice_lst_v b
+where a.entryid=1 and a.goodsid=b.GOODSID and b.entryid=1 and goodsid in ()
+
+
+
+库存查询:(根据goodsid进行在线库存查询)
+select goodsid,goodsname,goodstype,factoryname,goodsunit,wholeprice,stgoodsqty 
+from nherpuser.zx_pub_goods_price_qty_v 
+where usestatus=1 and goodsid =

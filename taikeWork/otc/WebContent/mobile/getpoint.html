@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>测试页面-品牌俱乐部</title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-touch-fullscreen" content="yes" />
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon-precomposed" href="imges/apple-touch-icon.png">
+
+  <link href="../css/mobile/font-awesome.min.css" type="text/css" rel="stylesheet" />
+  <link href="../css/mobile/base.css" rel="stylesheet" type="text/css" />
+  <link href="../css/mobile/mobile.css" rel="stylesheet" type="text/css" />
+
+
+  <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+
+  <script type="text/javascript" src="../js/mobile/dev/sha1.js"></script>
+
+  <script type="text/javascript" src="../js/mobile/dev/zepto/zepto.min.js"></script>
+  <script type="text/javascript" src="../js/mobile/fontsize.js"></script>
+  <script type="text/javascript" src="../js/mobile/layer/layer.js"></script>
+  <!--弹出框js-->
+  <script src="../js/mobile_modules/islogin.js?v=2.1"></script>
+  <style>
+    #checkJsApi {
+      width: 20rem;
+      margin-top: 10rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .showinfos {
+      font-size: 1.2rem;
+      overflow: hidden;
+      padding: .6rem
+    }
+    
+    .showinfos p {
+      margin: 1rem auto;
+      word-break: break-all;
+      word-wrap: break-word;
+    }
+    
+    .showinfos p label {
+      display: block;
+      color: #00B134;
+    }
+  </style>
+
+  <script type="text/javascript">
+
+    $(function(){
+      //加载
+      
+     var noncestr=generateMixed(16)  //随机数
+     var timestamp=Timestamp();  //时间戳
+     $(".showinfos").append("<p><label>随机数：</label>"+noncestr+"</p>");
+      $(".showinfos").append("<p><label>时间戳：</label>"+timestamp+"</p>")
+      var $this=this;
+       //获取基本信息
+    var object = new Object();
+    object.controlType = "getJsapiTicket";
+    var showbox = document.getElementById("erroconter");
+    var referrer="index.html";
+    ajaxFn(object, $this, function (data) {
+        
+     var ticket=isnull(data.map.ticket);
+      
+     var url=currturl.split("#")[0]//.replace("http://","")  //"http://demo.itaike.cn:8088/otc/mobile/getpoint.html" //currturl.split("#")[0] //"demo.itaike.cn:8088";
+   
+     var string="jsapi_ticket="+ticket+"&noncestr="+noncestr+"&timestamp="+timestamp+"&url="+url;
+       
+      var signature=hex_sha1(string);
+      // $(".showinfos").append("<p><label>生成的ticket：</label>"+isnull(data.map.ticket)+"</p>"); 
+       $(".showinfos").append("<p><label>ticket1：</label>"+ticket+"</p>"); 
+    // $(".showinfos").append("<p><label>string：</label>"+string+"</p>");
+         $(".showinfos").append("<p><label>url：</label>"+url+"</p>");
+         $(".showinfos").append("<p><label>signature：</label>"+signature+"</p>");
+     
+      wx.config({
+     debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+     appId: 'wxbbfff10e577b27a7', // 必填，公众号的唯一标识
+     timestamp: timestamp, // 必填，生成签名的时间戳
+     nonceStr: noncestr, // 必填，生成签名的随机串
+     signature:signature,// 必填，签名，见附录1
+     jsApiList: [
+        'checkJsApi',
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage',
+        'onMenuShareQQ',
+        'onMenuShareWeibo',
+        'hideMenuItems',
+        'showMenuItems',
+        'hideAllNonBaseMenuItem',
+        'showAllNonBaseMenuItem',
+        'translateVoice',
+        'startRecord',
+        'stopRecord',
+        'onRecordEnd',
+        'playVoice',
+        'pauseVoice',
+        'stopVoice',
+        'uploadVoice',
+        'downloadVoice',
+        'chooseImage',
+        'previewImage',
+        'uploadImage',
+        'downloadImage',
+        'getNetworkType',
+        'openLocation',
+        'getLocation',
+        'hideOptionMenu',
+        'showOptionMenu',
+        'closeWindow',
+        'scanQRCode',
+        'chooseWXPay',
+        'openProductSpecificView',
+        'addCard',
+        'chooseCard',
+        'openCard'
+      ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+    
+
+    wx.ready(function(){
+   // 1 判断当前版本是否支持指定 JS 接口，支持批量判断
+  
+  
+    wx.getLocation({
+    type: 'gcj02', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+    success: function (res) {
+        var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+        var longitude = res.longitude ; // 经度，浮点数，范围为180 ~ -180。
+        var speed = res.speed; // 速度，以米/每秒计
+        var accuracy = res.accuracy; // 位置精度
+        alert("纬度："+latitude+"；经度："+longitude+"；位置精度："+accuracy);
+          wx.openLocation({
+                latitude: latitude, // 纬度，浮点数，范围为90 ~ -90
+                longitude: longitude, // 经度，浮点数，范围为180 ~ -180。
+                name: '当前位置', // 位置名
+               
+                scale: 25, // 地图缩放级别,整形值,范围从1~28。默认为最大
+                infoUrl: '' // 在查看位置界面底部显示的超链接,可点击跳转
+                        });
+    }
+  });
+ 
+  
+  }); //wx.ready结束
+
+    }, "/otcdyanmic/employee.do",$this, referrer) 
+    //获取基本信息结束
+     
+    })
+         </script>
+
+
+</head>
+
+<body>
+  <script>
+      wx.config({
+      debug: false,
+      appId: 'wxf8b4f85f3a794e77',
+      timestamp: 1420774989,
+      nonceStr: '2nDgiWM7gCxhL8v0',
+      signature: '1f8a6552c1c99991fc8bb4e2a818fe54b2ce7687',
+      
+  });
+</script>
+  <!--页面主体-->
+  <div id="conter">
+    <div id="erroconter"></div>
+
+    <div class="showinfos"></div>
+  </div>
+
+
+</body>
+
+</html>

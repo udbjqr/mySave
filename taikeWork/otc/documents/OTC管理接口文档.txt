@@ -1,0 +1,1228 @@
+﻿3.1 登录后操作注意事项
+
+	参数列表	当前登录用户信息
+	必须参数	参数名称	别名	备注
+	controlType	操作类型
+		1、增：add
+		2、删：delete
+		3、改：update
+		4、查：load
+		5、分页列表：query
+		6、所有列表:queryAll
+	wxId	微信唯一标识	仅手机端需要此参数
+	返回对象	1、{"msg":"获取当前登录用户信息失败，请重新登录！",“errorCode“:“1“}
+		描述：用户未登录
+	2、{"msg":"未识别的用户！","success":false,“errorCode“:“2“}
+		描述：获取用户的类型（非会员和系统用户）
+	3、{"msg":"未识别的操作类型！","success":false,“errorCode“:“3“}
+		描述：获取用户的操作类型失败（增、删、改、查）
+	4、{"msg":"调用servlet发生异常！","success":false,“errorCode“:“4“}
+		描述：调用servlet发生异常
+	5、{"msg":"当前用户没有此操作权限！","success":false,“errorCode“:“5“}
+		描述：错误的操作
+	6、{"msg":"获取参数失败！","success":false,“errorCode“:“7“}
+		描述：获取参数异常
+
+
+3.2 登录后 参数传递说明
+参数传递说明
+	1、参数传递给后台，需将参数打包成Json格式。
+	2、Json名统一为：paramMap
+	3、格式例如 ： data:{paramMap:{“controlType”:”query”,”shop”:1}}
+
+3.3 微信
+	3.3.0  自动登录(tyc)
+		接口地址	/loginIfag.do
+		参数列表:
+		参数名称		别名	  		类型    		备注
+		openId		微信id		String
+
+		返回结果:
+		1.{"success":false,"errorCode":14,"msg":"此微信号未绑定！"}
+		2.{"map":{"user":{ "mname":XXX }},"success":true }
+		描述：用户登录成功
+
+	3.3.1  微信登录
+		接口地址	/userLogin.do
+		参数列表		参数名称	别名		类型		备注
+			wxId				微信Id	String	无
+			loginName		用户名	String
+			passWord		密码		String
+		返回结果
+		1、{"map":{"user":{ "mname":XXX }},"success":true }
+			描述：用户登录成功
+			User:用户对象,mname:用户名称.
+		2、{"msg":"账号或密码错误.","success":false,“errorCode“:“11“}
+			描述：账号或密码错误.
+		3、{"msg":"已经有用户登录,请先退出!","success":false,“errorCode“:“8“}
+			描述：已经有用户登录
+		4、{"msg":"此微信号已经绑定,不能再绑定!","success":false,“errorCode“:“10“}
+			描述：微信号已经与某一个用户绑定过.
+		5、{"msg":"此用户已经绑定","success":false,“errorCode“:“9“}
+			描述：此用户已经与微信号绑定过,不能再进行绑定.
+		6 {"msg":"请求参数出现异常","success":false,“errorCode“:“21“}
+			描述：请求的参数缺少,或者参数值不正确
+
+	3.3.2 图片共享
+		接口地址	/documents.do
+		参数列表			参数名称	别名		类型	备注
+			controlType 	类型									query
+			documentType	  文档类型								2
+			category 			资料类目
+			pageSize			每次返回条数
+			pageNumber		第几次请求
+		1.{"map":{"documents":[{"url":XXX,"thumbnails_url":XXX,"document_name":XXX,"remark":XXX}...]},"success":true }
+			url:完整图地址
+			thumbnails_url:缩略图地址
+			document_name:文档名称
+			remark:备注
+		2 {"msg":"请求参数出现异常","success":false,“errorCode“:“21“}
+			描述：请求的参数缺少,或者参数值不正确
+			
+			
+			
+	3.3.3 产品管理(tyc)
+		接口地址	/goods.do
+		产品列表(query):
+		参数名称	别名	  类型    	备注
+		name		搜索关键字	String	可选参数
+		pageSize	 每页显示的条数	Integer
+		pageNumber	当前页数	Integer
+		返回结果:
+		{"success":true,"map":{“goodsList“:[{“id“:产品ID“,“goodsName”:“产品名称“,“imgageURL”:“产品图片“,“ supplier“:“供应商“,“ isssess“:“标记出考核产品“}] }}
+		
+		
+		产品详情(load):
+		参数名称	别名	  类型    	备注
+		id			产品ID	Integer	
+		返回结果:
+		{"success":true,"map":{“goods“:
+		{“goodsName“:产品名称“,
+		“imgageURL”:“产品图片“,“ sellingPrice“:“ 产品批发价“,“ supplier“:“供应商“,
+		"goodsqty“:“ 产品库存“，“manual”：“产品说明”，“ goodstype“:“产品规格” }}}
+		
+	3.3.4 个人资料(tyc)
+		接口地址	/employee.do
+		修改密码(query):
+		参数名称	别名	  类型    	备注
+		newPassword2	新密码2		String	
+		newPassword1	新密码1		String	
+		oldPassword		旧密码		String
+		返回结果:
+		{"success":true,"map":{“msg“:“修改密码成功!“}}
+		
+		
+		查看个人资料(load):
+		参数名称	别名	  类型    	备注
+		返回结果:
+		{"success":true,"map":{“ employee“:
+		{“ realName“: 真实名称“,“ mobile”:“ 手机号“,“ depName“:“部门名称“, " loginName“:“ 登录账号“，“ areaName”：“ 员工区域”，“ groupName“:“ 角色”,“position“:“员工职位“,“ headPortrait“:“头像“}}}
+
+
+		
+		修改个人资料（update）：
+		参数名称	别名	  类型    	备注
+		realName	真实名称	String	可选参数
+		mobile	手机号	String	可选参数
+		返回结果:
+		{"success":true,"map":{“msg“:“ 修改个人资料成功！!“}}
+		
+	3.3.5 资料管理(tyc)
+		接口地址	/ documents.do
+		修改密码(query):
+		参数名称	别名	  类型    	备注
+		name	搜索关键字	String
+		documentType	资料类型	Integer 1：资料 2：图片 3：视频
+		pageSize	 每页显示的条数	Integer
+		pageNumber	当前页数	Integer
+		category	资料类目	String
+
+		返回结果:
+		1.资料:{"success":true,"map": {“ documentsList“
+		：{“documentName“
+		：文件名”，“ updateTime“：“更新时间”“ tumbnailsUrl”：“缩略图地址”,“ url“: “URL地址”}...],“count“:“总记录条数“ 
+		}}
+		
+		2. 图片:{"success":true, "map": {“documentsList“
+		：{
+		{“documentName“
+		：图片名称”，url“: “URL地址”，“ tumbnailsUrl”：“ 略缩图”}...] }}
+		
+		3. 视频:{"success":true,"map":{“documentsList“：{{“documentName“：文件名”,“tumbnailsUrl”：“缩略图地址”，“ updateTime“：“更新时间”，“ url“: “URL地址”}...],“count“:“总记录条数“ }}
+
+
+
+3.4 后台管理
+	1、管理员登录
+		接口地址	/mangerLogin.do
+	参数列表		参数名称	别名	  类型    	备注
+		loginName		登录名	  String	  无
+		passWord		密码		  String	  无
+	成功返回:	1、{"map":{“employeeId“:“xxxx“,“realName“:“xxx“},"msg":"登录成功！","showMsg":true,"success":true}
+	失败返回:
+	2、{"map":{},"msg":"用户名或密码不能为空！","showMsg":true,"success":false,“errorCode“:“1“}
+		描述：用户名或密码不能为空！
+	3、{"map":{},"msg":"当前已存在登录用户，请先退出！","showMsg":true,"success":false,“errorCode“:“2“}
+		描述：存在同时登录用户
+	4、{"map":{},"msg":"用户名或密码错误！","showMsg":true,"success": false ,“errorCode“:“4“}
+		描述： 用户名或密码错误
+	5 {"msg":"请求参数出现异常","success":false,“errorCode“:“21“}
+		描述：请求的参数缺少,或者参数值不正确
+		
+		
+	3.3.4 个人资料(tyc)
+		接口地址	/employee.do
+		修改密码(update):
+		参数名称		别名	  	类型    	备注
+		newPassword2	新密码2		String	
+		newPassword1	新密码1		String	
+		oldPassword		旧密码		String	
+		返回结果:
+		{"success":true,"map":{“msg“:“修改密码成功!“}}
+		
+		查看个人资料(load):
+		参数名称	别名	  类型    	备注
+		
+		返回结果:
+		{"success":true,"map":{“ employee“:
+		{“ realName“: 真实名称“,“ mobile”:“ 手机号“,“ depName“:“部门名称“, 
+		" loginName“:“ 登录账号“，“ areaName”：“ 员工区域”，“ groupName“:“ 角色”,“ group“:所属分组“,“position“:“员工职位“,“ headPortrait“:“头像“}
+
+		
+		修改个人资料（update）：
+		参数名称	别名	  类型    	备注
+		realName	真实名称	String	可选参数
+		mobile	手机号	String	可选参数
+		file	头像	文件类型	可选参数
+		
+		返回结果:
+		{"success":true,"map":{“msg“:“ 修改个人资料成功！!“}}
+		
+	
+	3.3.5 供应商列表(tyc)
+		接口地址	/supplier.do
+		供应商列表（queryAll）:
+		参数名称		别名	  	类型    	备注
+		返回结果:
+		{"success":true,"map":{“supplierList“:[{“id”:“供应商ID“，“supplierName”:“供应商名称“ }...] ,“count“:“总记录条数“}}
+		
+		
+	3.3.6 成本管理(tyc)
+		接口地址	/cost.do
+		成本列表（query）:
+		参数名称		别名	  	类型    	备注
+		startTime	开始时间	String	可选参数 yyyy-MM-dd HH:mm:ss格式
+		endTime	结束时间	String		可选参数 yyyy-MM-dd HH:mm:ss格式
+		name	搜索关键字	String		可选参数
+		pageSize	 每页显示的条数		Integer	
+		pageNumber	当前页数			Integer	
+
+		返回结果:
+		{"success":true,"map":{
+		“ costList“:[{ {“goodsId“:
+		产品ID“,“goodsName”:“产品名称“,“ supplier“:“供应商“,“ specification“:“产品规格” , “costPrice1”:”成本1”，“ costPrice2”:”成本2”，“ costPrice3”:”成本3”，
+		“ sellingPrice”:”销售价”，“ modifyPrices”:”调整次数”，“ operatorName”:”操作人”，“ operatorTime”:”成本价更改时间”,“id“:“ 批次“}...],“count“:“总记录条数“
+		}}
+		
+		成本详情（load）:
+		参数名称		别名	  	类型    	备注
+		id	成本Id	Integer	
+
+		返回结果:
+		{"success":true,"map":{
+		“data“:{“goodsId“:
+		产品ID“,“goodsName”:“产品名称“,“ supplier“:“供应商“,“ specification“:“产品规格” , “costPrice1”:”成本1”，“ costPrice2”:”成本2”，“ costPrice3”:”成本3”，
+		“ sellingPrice”:”销售价”，“ modifyPrices”:”调整次数”，“ operatorName”:”操作人”，“ operatorTime”:”成本价更改时间”,“id“:“ 批次“},“count“:“总记录条数“
+		}}
+		
+		成本列表（update）:
+		参数名称		别名	  	类型    	备注
+		id	成本Id	Integer	
+		costPrice2	成本价2	String	可选参数
+		costPrice3	成本价3	String	可选参数
+		
+		返回结果:
+		1.{"success":true,"map":{“msg”:“修改成本成功！”}}
+		2.{"success":false,"errorCode":21,"msg":"请求参数出现异常."}
+		
+		
+	3.3.7 资料管理 (tyc)
+		接口地址	/documents.do
+		资料列表查询（query）:
+		参数名称		别名	  	类型    	备注
+		name	搜索关键字	String	可选参数
+		documentType	资料类型	Integer		1：资料 2：图片 3：视频
+		pageSize	 每页显示的条数	Integer	
+		pageNumber	当前页数	Integer	
+		category	资料类目	String			选择其中一个参数：【证件图片，宣传活动，员工风采】
+		
+		返回结果:
+		1.资料:{"success":true,"map": {“ documentsList“
+				：{“documentName“
+				：文件名”，“ updateTime“：“更新时间”，“ downloadNumber“：“下载次数” ,“ uploadEmployee“: “ 上传人“，“ tumbnailsUrl”：“缩略图地址”,“ url“: “URL地址”}...],“count“:“总记录条数“ 
+				}}
+				不显示文件文件大小
+		
+		2. 图片:{"success":true, "map": {“ documentsList“
+			：{
+			{“documentName“
+			：图片名称”，url“: “URL地址”，“ tumbnailsUrl”：“ 略缩图”}...] }}
+		
+		3. 视频:{"success":true, "map":{“ documentsList“：{{“documentName“：文件名”,“ tumbnailsUrl”：“缩略图地址”}...],“count“:“总记录条数“ }}
+		
+		新增资料（add）:
+		参数名称		别名	  	类型    	备注
+		file	上传的文件	文件类型	
+		fileName 文件名      String
+		documentType	资料类型	Integer	1：资料 2：图片 3：视频
+		documentName	文件名称	String	视频管理参数
+		category	资料类目	String	可选参数：【宣传活动，员工风采,证书图片】
+		url	视频连接地址	String	视频资料参数
+
+		返回结果:
+		{"success":true,"map":{“msg”:“ 添加资料成功！”}}
+		
+
+		删除资料（delete）:
+		参数名称		别名	  	类型    	备注
+		id			资料Id		Integer
+
+		返回结果:
+		{"success":true,"map":{“msg”:“ 删除资料成功！”}}
+
+		修改图片资料（update）:
+		参数名称		别名	  	类型    	备注
+		id				资料Id		Integer
+		documentName	图片名称	String	可选参数
+		category		图片类目	String	可选参数
+
+		返回结果:
+		{"success":true,"map":{“msg”:“ 添加资料成功！”}}
+
+
+		资料详情（load）:
+		参数名称		别名	  	类型    	备注
+		id			资料Id		Integer
+
+		返回结果:
+		{"success":true,"map": “ documentsList“
+				：{“documentName“
+				：文件名”，“ updateTime“：“更新时间”，“ downloadNumber“：“下载次数” ,“ uploadEmployee“: “ 上传人“，“ tumbnailsUrl”：“缩略图地址”,“ url“: “URL地址”}...],“count“:“总记录条数“
+				}}
+
+	3.3.8 客户管理 (tyc)
+		接口地址	/customer.do
+		
+		客户列表查询（query）:
+		参数名称		别名	  	类型    	备注
+		name	搜索关键字	String	可选参数
+		areaId	所属区域	Integer	可选参数
+		flag	客户类型	Integer	可选参数:1：连锁客户 2：商业客户
+		attributesId	客户属性	Integer	可选参数
+		employeeId	负责人	Integer	可选参数
+		areaManagerId   区域经理       Integer 可选参数
+		name	搜索关键字	String	可选参数
+		pageSize	 每页显示的条数	Integer	
+		pageNumber	当前页数	Integer	
+		返回结果:
+		1. 连锁客户:
+		{"success":true,"map":{“ customerList”：[{“id“
+		：序号”，“areaName“：“区域名称”，“realName“：“负责人” ,“personInChargeName“: “责任主管，“attributesName”：“ 属性”,“ customerName“: “ 单位名称” ，“address”：“地址” ，“buyer”：“ 采购联系人” ，“buyerPhone”：“ 采购联系方式” ，“visitsNumber”：“拜访次数”}...],“count“:“总记录条数“ }}
+		
+		2. 商业客户:
+		{"success":true,"map":{“ customerList”：[{“id“
+		：序号”，“areaName“：“区域名称”，“realName“：“负责人” “ customerName“: “ 单位名称”，“visitsNumber”：“拜访次数”}...],“count“:“总记录条数“ }}
+		
+		新增客户（add）:
+		参数名称		别名	  	类型    	备注
+		flag	客户类型	Integer	1：连锁客户 2：商业客户
+		customerName	单位名称	String	
+		areaId	区域	Integer	
+		employeeId	负责人	Integer
+		address	地址	String	
+		areaManagerId 区域经理ID Integer 新增参数
+		attributesId	属性	Integer	连锁客户参数
+		buyer	采购负责人	Integer	连锁客户参数
+		buyerPhone	采购负责人电话	String	连锁客户参数
+		personInChargeId	责任主管	Integer	必填参数
+		chainCustomerId     连锁客户Id  Integer 连锁客户参数
+		
+		返回结果:
+		{"success":true,"map":{“msg”:“ 新增客户成功！”}}}
+		
+		接口地址	/ chainCustomer.do
+		门店客户查询（queryAll）:
+		参数名称		别名	  	类型    	备注
+		返回结果:
+		{"success":true,"map":{“list”：[{“id“
+		：“门店客户Id”，“name“：“客户名称”}...]}}
+		
+		
+		
+		修改客户（update）:
+		参数名称			别名	  			类型    	备注
+		id					客户Id				Integer	    
+		customerName		单位名称			String	    参数可选
+		areaId				区域Id				Integer	    参数可选
+		employeeId			负责人Id			Integer	    参数可选
+		address				地址				String	    参数可选
+		attributesId		属性				Integer		可选连锁客户参数
+		buyer				采购联系人			Integer		可选连锁客户参数
+		buyerPhone			采购联系电话		String		可选连锁客户参数
+		personInChargeId	责任主管			Integer		可选连锁客户参数
+		
+		返回结果:
+		{"success":true,"map":{“msg”:“ 修改客户成功！”}}}
+		
+		导出客户列表（fileUpload）:
+		参数名称	别名	  类型    	备注
+
+		返回结果:
+		1.{"success":false,"errorCode":16,"msg":"文件导出异常！"}
+
+		客户详情（load）:
+		参数名称		别名	  	类型    	备注
+		id			客户Id			Integer
+
+
+		返回结果:
+		1. 连锁客户:
+		{"success":true,"map":{“customer”：“id“
+		：序号”，“areaName“：“区域名称”，“realName“：“负责人” ,“personInChargeName“: “责任主管，“attributesName”：“ 属性”,“ customerName“: “ 单位名称” ，“address”：“地址” ，“buyer”：“ 采购联系人” ，“buyerPhone”：“ 采购联系方式” ，“visitsNumber”：“拜访次数”}...],“count“:“总记录条数“ }}
+
+		2. 商业客户:
+		{"success":true,"map":{“ customer"：[{“id“
+		：序号”，“areaName“：“区域名称”，“realName“：“负责人” “ customerName“: “ 单位名称”，“visitsNumber”：“拜访次数”}...],“count“:“总记录条数“ }}
+
+		导出客户列表（fileUpload）:
+		参数名称	别名	  类型    	备注
+
+		返回结果:
+		1.{"success":false,"errorCode":16,"msg":"文件导出异常！"}
+
+		客户拜访记录 (tyc)
+		参数名称		别名	  	类型    	备注
+		customer_id	客户Id	Integer	
+		pageSize	 每页显示的条数	Integer	
+		pageNumber	当前页数	Integer	
+
+		返回结果:
+		{"success":true,"map":{“ customerVisitsList”：[{“visitName“：“拜访人”，“signTime“：“签到时间” }...],“count“:“总记录条数“ }}
+
+	3.3.10 销售查询(tyc)
+		接口地址	/sale.do
+		销售查询（query）:
+		参数名称		别名	  	类型    	备注
+		startTime	开始时间	String	可选参数 yyyy-MM-dd HH:mm:ss格式
+		endTime	结束时间	String	可选参数 yyyy-MM-dd HH:mm:ss格式
+		name	搜索关键字	String	可选参数
+		supplierId	供应商			Integer	可选参数
+		pageSize	 每页显示的条数	Integer	
+		pageNumber	当前页数	Integer	
+
+		返回结果:	
+		{"success":true,"map":{“saleList“:[{“goodsId“:产品ID“,“goodsName”:“产品名称“,“ supplier“:“供应商“,“ goodstype“:“产品规格”, “costPrice1”:”销售成本1”，“ costPrice2”:”销售成本2”，“ costPrice3”:”销售成本3”
+		，“salesVolume”:”数量”，“ operatorId”:”操作人”，“saleTme”:”业务时间”,“id“:“ 批次“, sellingPrice“:“单价“, sellingMoney“:“金额“ }...],“count“:“总记录条数“ 
+		}}
+		
+		saleCountMoeny 总销售额
+		countCostPrice1 总销售成本1
+		countCostPrice2 总销售成本2
+		countCostPrice3 总销售成本3
+		countMoeny1 总盈亏1
+		countMoeny2 总盈亏2
+		countMoeny3 总盈亏3
+		
+		
+
+	3.3.10 员工地区查询(tyc)
+		接口地址	/areaDivision.do
+		资料列表查询（queryAll）:
+		参数名称		别名	  	类型    	备注
+		
+		返回结果:	
+		{"success":true,"map":{“saleList“:[{ “id“:
+	“地区Id“, “name“:“地区名,“ remark“:
+	“备注“,“ flag”：“标志” }...],“count“:“总记录条数“ }}	
+	
+	3.3.11 客户属性列表查询(tyc)
+		接口地址	/customerAttributes.do
+		资料列表查询（queryAll）:
+		参数名称		别名	  	类型    	备注
+		
+		返回结果:	
+		{"success":true,"map":{“saleList“:[{ “id“:
+		“地区Id“, “name“:“客户属性名,“ remark“:
+		“备注“,“ flag”：“标志” }...],“count“:“总记录条数“ }}
+		
+		
+	3.3.12 产品管理(tyc)
+		接口地址	/goods.do
+		产品列表(query):
+		参数名称		别名	  		类型    		备注
+		name		搜索关键字		String	可选参数
+		supplierId	供应商			Integer	可选参数
+		isAssess	是否考核		Integer	0:未考核 1：考核
+		flag		状态			Integer	0:停用 1：正常
+		pageSize	 每页显示的条数	Integer	
+		pageNumber	当前页数		Integer	
+
+		返回结果:
+		{"success":true,"map":{“goodsList“:[{“id“:产品ID“,“goodsName”:“产品名称“,
+		“supplier“:“供应商“,“ isssess“:“标记出考核产品“,"sellingPrice":"产品批发价",
+		"ifag":"状态","goodsqty":"库存",“ specification“:“产品规格”}] }}
+
+		
+		产品详情(load):
+		参数名称	别名	  类型    	备注
+		id			产品ID	Integer	
+		返回结果:
+		{"success":true,"map":{“goods“:
+		{“id“:产品ID“,“goodsName“:产品名称“,“ supplier“:“供应商“，“ specification“:“产品规格”, “ isAssess“:“标记出考核产品“, “ flag”:“状态“， “isssess“:“标记出考核产品“ ,“ manual“:“ 说明书“ ,“ imageURL“:“产品图片“}}
+				
+		添加产品(add):
+		参数名称	别名	  类型    	备注
+		id	产品ID号	Integer	
+		goodsName	产品名称	String	
+		specification	规格	String	
+		supplier	供应商	String	
+		isAssess	考核	Integer	
+		flag	状态	String	
+		imageURL	上传产品图片 文件类型	上传文件
+		fileName	 文件名称	String
+		manual	说明书	String	
+
+
+		返回结果:
+		{"success":true,"map":{“msg”:“ 新增产品成功！”}}
+		
+		
+		修改产品(update):
+		参数名称	别名	  	类型    	备注
+		id			产品ID号	Integer
+		goodsName	产品名称	String	可选参数
+		specification	规格	String	可选参数
+		supplierId	供应商ID	Integer	可选参数
+		isAssess	考核	String	可选参数
+		flag	状态	String	可选参数
+		imageURL	上传产品
+		图片	文件类型	上传文件
+		manual	说明书	String	可选参数
+		
+		返回结果:
+		{"success":true,"map":{“msg”:“修改产品成功！”}}
+
+
+		导入产品列表（fileImport）:
+		参数名称	别名	  类型    	备注
+		fileName	文件名称	String
+		file	Excel文件	文件类型
+
+		返回结果:
+		1.{"success":true,"map":{“msg”:“ 导入产品列表成功！”}}
+		2.{"success":false,"errorCode":15,"msg":"文件导入异常！！"}
+
+
+		导出产品列表（fileUpload）:
+		参数名称	别名	  类型    	备注
+
+		返回结果:
+		1.{"success":true,"map":{“msg”:“ 导出产品列表成功！”}}
+		2.{"success":false,"errorCode":16,"msg":"文件导出异常！"}
+
+
+
+3.5 拜访计划管理
+    接口地址	/visitPlanServlet.do
+	1、新增拜访计划
+	    controlType	：add
+	    参数列表		参数名称	     别名	    类型         备注
+        visits_id	 拜访人	               String	      无
+        custom_id	 店铺		           String	      无
+        planDate	预计拜访日期	           String	  （2016-10-27）
+        planTime	拜访时间段		       String	  （1：上午，2：下午）
+	成功返回: (1)、{"map":"","success":true}
+	失败返回:
+	         (2){"msg":"错误的参数格式数据！","success":false,“errorCode“:“104“}
+
+    2、审核拜访计划
+        controlType	：audit
+        参数列表		 参数名称	     别名	    类型         备注
+        visitsId	  拜访人	               Integer	      无
+        flag	    审核状态		           String	      无
+        planMonth	拜访月份	               String	  （2016-10）
+    成功返回: (1)、{"map":"","success":true}
+    失败返回:
+    	     (2){"msg":"错误的参数格式数据！","success":false,“errorCode“:“104“}
+    	     (3){"msg":"调用servlet 发生异常！","success":false,“errorCode“:“104“}
+
+    3、拜访计划列表
+        controlType	：query
+        参数列表		 参数名称	     别名	    类型         备注
+        visitsId	 拜访人	               Integer	      无
+        planMonth	拜访月份	               String	  （2016-10）
+     //todo 这边还没写返回数据
+    成功返回: (1)、{"map":"","success":true}
+    失败返回:
+             (2){"msg":"获得列表信息异常!","success":false,“errorCode“:“101“}
+
+    4、删除拜访计划
+        controlType	：delete
+            参数列表		 参数名称	     别名	    类型         备注
+            planId	     计划Id              String	      无
+        成功返回: (1)、{"map":"","success":true}
+        失败返回:
+        	     (2){"msg":"对象不存在!","success":false,“errorCode“:“105“}
+
+3.6 门店拜访统计
+    接口地址	/visitStatServlet.do
+    controlType	：query
+        参数列表		 参数名称	     别名	    类型         备注
+        selectType	  查询条件	               String	      （"store":门店,"product":产品）
+        planMonth	拜访月份	               String	  （2016-10）
+     //todo 这边还没写返回数据
+     成功返回: (1)、selectType 为 store：  {"map":"","success":true}
+              (2)、selectType 为 product：  {"map":"","success":true}
+     失败返回:
+              (1){"msg":"获得列表信息异常！","success":false,“errorCode“:“101“}
+
+
+3.6 负责人查询或责任主管查询(tyc)
+		接口地址	/employee.do
+		列表查询（query）:
+		参数名称			别名	  		类型    			备注
+		employee_type  员工类型  		Integer     1.责任主管    2.负责人  5.区域经理查询 
+		
+		返回结果:	
+		{"success":true,"map":{“list“:[{ “id“:
+		“负责人Id“, “name“:“负责人姓名“}...]}}
+		
+
+
+		
+		
+		
+		
+3.7 客户详情管理（微信端）
+    接口地址  /visitPlanServlet.do
+    controlType	：query（计划安排）
+        参数列表		 参数名称	     别名	    类型         备注
+        visitsId	 拜访人	               Integer	      无
+        planMonth	拜访月份	               Integer	  （2016-10）
+        myPlan     是否已审核               String            默认传‘1’
+     成功返回:
+            （1）{"map":{“list“:[{“id“:计划ID“,“custom_id”:“客户ID“,
+            		“coustom“:“客户名“}] },"success":true}
+     失败返回：（1）{"msg":"获得前端信息异常！","success":false,“errorCode“:“7“}
+              （2）{"msg":"获得列表信息异常！","success":false,“errorCode“:“101“}
+    客户详情
+3.7 客户详情管理（微信端）
+    接口地址  /visitPlanServlet.do
+    controlType	：query（计划安排）
+        参数列表		 参数名称	     别名	    类型         备注
+        visitsId	 拜访人	               Integer	      无
+        planMonth	拜访月份	               Integer	  （2016-10）
+        myPlan     是否已审核               String            默认传‘1’
+     成功返回:
+            （1）{"map":{“list“:[{“id“:计划ID“,“custom_id”:“客户ID“,
+            		“coustom“:“客户名“}] },"success":true}
+     失败返回：（1）{"msg":"获得前端信息异常！","success":false,“errorCode“:“7“}
+              （2）{"msg":"获得列表信息异常！","success":false,“errorCode“:“101“}
+	
+	
+	
+	
+	
+3.8 导入拜访计划审核列表
+	接口地址  /visitPlan.do
+    controlType	：fileExport
+     参数名称	     	别名	    类型         备注
+     fileName			文件名	 	String	  
+	 file               文件     
+           
+     成功返回: （1）{"success":true,"msg":“导入列表数据成功！“}
+     失败返回：（1）{"msg":"文件导入异常！","success":false,“errorCode“:106}
+
+
+3.9  导入拜访工作计划列表
+	接口地址  /visitPlan.do
+    controlType	：fileExport
+	参数名称	     	别名	    类型         备注
+	fileName			文件名	 	String	  
+	file                文件        String       文件base64
+     
+	 
+	 成功返回: （1）{"success":true,"msg":“导入列表数据成功！“}
+     失败返回：（1）{"msg":"文件导入异常！","success":false,“errorCode“:106}
+	 
+	导出拜访工作计划列表
+	接口地址  /visitPlan.do
+	controlType：fileExport
+	参数名称	     	别名	    类型         备注
+	employee_id			用户Id	 	String	  
+	planDay             计划年月   String        yyyy-MM格式
+     
+	 
+     失败返回：（1）{"msg":"文件导出异常","success":false,“errorCode“:“107“}
+	 
+	 
+3.10 导出拜访统计管理
+	接口地址  /visitStat.do
+    controlType	：fileExport
+	参数名称	     	别名	    类型         备注
+	selectType			查询类型	String	    （store:门店，product:产品)
+	planMonth           计划年月   String        yyyy-MM格式
+	 
+	 
+   失败返回：（1）{"msg":"文件导出异常","success":false,“errorCode“:“107“}
+   
+
+3.11 导出产品考核设置
+	接口地址  /appraisalConfig.do
+    controlType	：fileExport
+	参数名称	     	别名	    类型         备注
+	exportType          导出类型    String       传固定值：product   
+	 
+	 
+   失败返回：（1）{"msg":"文件导出异常","success":false,“errorCode“:“107“}
+
+
+3.12 导出门店考核设置
+	接口地址  /appraisalConfig.do
+    controlType	：fileExport
+	参数名称	     	别名	    类型         备注
+	exportType          导出类型    String       传固定值：store           
+	
+   失败返回：（1）{"msg":"文件导出异常","success":false,“errorCode“:“107“}
+   
+   
+
+3.13 导出连锁门店考核设置
+	 接口地址  /appraisalConfig.do
+    controlType	：fileExport
+	参数名称	     	别名	    类型         备注
+	exportType          导出类型    String       传固定值：coustom          
+	
+   失败返回：（1）{"msg":"文件导出异常","success":false,“errorCode“:“107“}
+
+
+3.11 导入产品考核设置
+	接口地址  /appraisalConfig.do
+    controlType	：fileImport
+	参数名称	     	别名	    类型         备注
+	importType          导出类型    String       传固定值：product   
+	fileName			文件名	 	String	  
+	file                文件        String       文件base64
+	 
+   成功返回：（1）{"msg":"导入列表数据成功！","success":true}
+   失败返回：（1）{"msg":"文件导入异常！","success":false,“errorCode“:106}
+			 （2）{"msg":"不支持上传的文件类型！","success":false,“errorCode“:“109“}	
+
+
+3.12 导入门店考核设置
+	接口地址  /appraisalConfig.do
+    controlType	：fileImport
+	参数名称	     		别名	    类型         			备注
+	importType          导出类型    String       传固定值：store 
+	fileName			文件名	 	String	  
+	file                文件        String       文件base64		
+	
+   成功返回：（1）{"msg":"导入列表数据成功！","success":true}
+   失败返回：（1）{"msg":"文件导入异常！","success":false,“errorCode“:106}
+			 （2）{"msg":"不支持上传的文件类型！","success":false,“errorCode“:“109“}	
+			 	
+
+3.13 导入连锁门店考核设置
+	 接口地址  /appraisalConfig.do
+    controlType	：fileImport
+	参数名称	     	别名	    类型         备注
+	importType          导出类型    String       传固定值：coustom  
+	fileName			文件名	 	String	  
+	file                文件        String       文件base64
+	
+   成功返回：（1）{"msg":"导入列表数据成功！","success":true}
+   失败返回：（1）{"msg":"文件导入异常！","success":false,“errorCode“:106}   
+			 （2）{"msg":"不支持上传的文件类型！","success":false,“errorCode“:“109“}
+
+
+3.14 模板路径：
+			1.导入产品模板 X
+				templates/importGoodsTemplate.xls
+			2.导入拜访计划数据模板
+				templates/importVisitsPlan.xls
+			3.导入产品考核设置模板 X
+				templates/importGoodsAppraisalsTemplate.xls
+			4.导入连锁门店考核设置模板
+				templates/importChainCustomerTemplate.xls
+			5.导入门店考核设置模板 X
+				templates/importGoodCustmerTarget.xls
+			6.导入客户模板
+				templates/importCustomerTemplate.xls
+			6.导入用户模板
+				templates/importUserTemplate.xls	
+			
+				
+3.15 系统退出接口
+/systemExit.do?systemExit=0 
+
+
+3.16 销售查询导出
+	接口地址  /sale.do
+    controlType	：fileExport
+	          
+	
+   失败返回：（1）{"msg":"文件导出异常","success":false,“errorCode“:“107“}
+
+3.17 成本管理导出
+	接口地址  /cost.do
+    controlType	：fileExport
+	
+   失败返回：（1）{"msg":"文件导出异常","success":false,“errorCode“:“107“}
+   
+3.16 用户列表导出
+	接口地址  /userManger.do
+    controlType	：fileExport
+	          
+   失败返回：（1）{"msg":"文件导出异常","success":false,“errorCode“:“107“}
+   
+3.16 用户列表导入
+	接口地址  /userManger.do
+    controlType	：fileImport
+	参数名称	     	别名	    类型         备注
+	fileName			文件名	 	String	  
+	file                文件        String       文件base64
+	          
+   失败返回：（1）{"msg":"文件导出异常","success":false,“errorCode“:“107“}
+
+
+3.12 导出考核管理列表
+	接口地址  /appraisalUser.do
+    controlType	：fileExport	
+	参数名称	    别名	    类型           备注
+	time     年月    String    yyyy-MM格式             
+	
+   失败返回：（1）{"msg":"文件导出异常","success":false,“errorCode“:“107“}  
+   
+   
+3.10 导出拜访统计管理
+	接口地址  /visitStat.do
+    controlType	：fileExport
+	参数名称	     	别名	    类型         备注
+	selectType			查询类型	String	    传固定值：productDetail(产品详情)
+	 
+	 
+   失败返回：（1）{"msg":"文件导出异常","success":false,“errorCode“:“107“}   
+   
+   
+3.11 根据地区查询南华客户
+	接口地址  /chainCustomer.do
+    controlType	：query
+	参数名称	     	别名	    类型         备注
+	area_id			地区Id int	地区Id
+	 
+   成功返回：（1）{"success":true,"map":[{"id":”南华客户Id“,"name":"客户名称"，“area_id”：“地区Id”}]}
+   
+3.12 查询产品信息按关键字查询
+	接口地址  /goods.do
+    controlType	：queryGoodsInfo
+	参数名称	             别名	          类型         备注
+	name		搜索关键字	String	可选参数
+	pageSize	 每页显示的条数	Integer
+	pageNumber	当前页数	Integer
+	返回结果:
+	{"success":true,"map":{“data“:[{“goodsId“:产品ID“,“goodsName”:“产品名称“,“supplierName”:“供应商“,"specification":“规格”}] }}
+	
+
+3.13 文件上传接口：
+	接口地址  /fileUpload.do
+	
+	参数：上传的文件二进制流
+
+3.14 文件管理
+	接口地址  /documents.do
+	新增资料（add）:
+		参数名称			别名	  		类型    			备注
+		fileName 		上传时的文件名称      String
+		documentType	资料类型		Integer		1：资料 2：图片 3：视频
+		documentName	文件名称		String		视频管理参数
+		category		资料类目		String		图片管理参数：【宣传活动，员工风采,证书图片】
+		url				视频连接地址 	String		视频资料参数
+		filePath        fileUpload.do接口上传文件后返回的文件路径   String
+
+		返回结果:
+		{"success":true,"map":{“msg”:“ 添加资料成功！”}}
+	
+3.15 获取验证码
+     接口地址 /validate.do
+   返回结果验证码图片
+   
+ /mangerLogin.do接口
+    新增validateCode 验证码参数
+    
+    
+ 3.16 销售统计
+ 	接口地址  /homePage.do
+	controlType	：querySaleStatistics
+	参数名称			别名	  		类型    			备注
+	startTime		开始时间		String	 yyyy-MM格式
+	endTime			结束时间		String	 yyyy-MM格式
+	goodsId         产品Id       Integer   
+	supplierId      供应商Id      Integer
+
+	返回结果:
+	todayYear 今年
+	lastYear 去年
+	todayYearSale 今年销售额
+	lastYearSale  去年销售额
+	todayList 今年销售统计
+	lastList 明年销售统计
+	monthYears 年月
+	rateOfRise 销售统计
+	usemonth 年
+	useyear 月
+	rateOfRise 增长率
+	total 销售额
+	
+3.17 搜索产品按供应商ID
+	接口地址  /goods.do
+	controlType	：queryGoodsBySuperId
+	参数名称			别名	  		类型    			备注
+	supplierId      供应商Id      Integer      
+	
+	返回结果:
+	id 产品Id
+	name 产品名称
+
+3.18  门店销售数据
+	查询门店销售数据列表：
+	接口地址  /customerSale.do
+	controlType	：query
+	参数名称			别名	  		类型    			备注
+	pageSize		每次返回条数              String
+	pageNumber		第几次请求                   String
+	name            搜索关键字                  String
+	startTime       开始时间                       String      yyyy-MM-dd
+	endTime			结束时间                      String       yyyy-MM-dd
+	返回结果:
+	{"success":true,"map":{“data“:[{“customer_name“:"门店客户名称“,“goods_name”:“产品名称“
+	,“goods_num”:“产品数量“,"goods_price":“单价”
+	,"goods_saleMoney":"销售额","sale_time":"销售时间"}] }}
+
+3.19 导入门店销售数据
+	接口地址  /customerSale.do
+	controlType	：fileImport
+	参数名称			别名	  		类型    			备注
+	fileName		文件名称		String
+	file			Excel文件		base64
+    chain_customer_id 连锁客户ID   String
+	返回结果:
+	1.{"success":true,"map":{“msg”:“ 导入产品列表成功！”}}
+	2.{"success":false,"errorCode":15,"msg":"文件导入异常！！"}
+	
+ 	
+
+3.20 导出门店销售数据
+	接口地址  /customerSale.do
+	controlType	：fileExport
+	参数名称			别名	  		类型    			备注
+	返回结果:
+	filePath
+
+
+
+3.21 新增门店配置
+	接口地址  /customerConfig.do
+	controlType	：add
+	参数名称				别名	  		类型    			备注
+	target_customer_id 	对方门店ID     String
+    customer_id         门店ID       Integer
+	返回结果:
+	{"success":true,"map":{“msg”:“新增门店配置成功！”}}
+
+
+3.22 查询门店销售关系配置数据列表
+	接口地址  /customerConfig.do
+	controlType	：query
+	参数名称			别名	  		类型    			备注
+	pageSize		每次返回条数              String
+	pageNumber		第几次请求                   String
+	返回结果:
+	{"success":true,"map":{“data“:[{“customer_name“:"门店客户名称“
+	,“customer_id”:“客户ID“,"target_customer_id":“对方客户ID”
+	}] }}
+
+
+3.23 查询门店产品销售关系配置数据列表
+	接口地址  /goodsConfig.do
+	controlType	：query
+	参数名称			别名	  		类型    			备注
+	pageSize		每次返回条数              String
+	pageNumber		第几次请求                   String
+	goods_name      产品名称                 	String
+	chain_customer_name 客户名称         String
+	返回结果:
+	{
+	"success":true,
+	"map":
+	{“data“:
+		[{
+			“chain_customer_name“:"连锁客户名称“,
+			“goods_name”:“产品名称“,
+			“goods_id”:“产品ID“,
+			"chain_customer_id":“连锁客户ID”,
+			"target_goods_id":"对方产品ID",
+			"specification":"产品规格",
+			"goods_name";"产品名称"
+		}] 
+	}}
+
+
+
+3.24 新增产品配置
+	接口地址  /goodsConfig.do
+	controlType	：add
+	参数名称				别名	  		类型    			备注
+	target_goods_id 	对方产品ID     String
+    chain_customer_id    连锁门店ID    Integer
+    goods_id             产品ID     Integer
+	返回结果:
+	{"success":true,"map":{“msg”:“新增产品配置成功！”}}
+	
+
+3.24 删除产品配置
+	接口地址  /goodsConfig.do
+	controlType	: delete
+	参数名称				别名	  		类型    			备注
+	id             			产品配置ID     	Integer
+	返回结果:
+	{"success":true,"map":{“msg”:“删除产品配置成功！”}}	
+	
+
+3.25 删除门店配置
+	接口地址  /customerConfig.do
+	controlType	: delete
+	参数名称				别名	  		类型    			备注
+	id             			门店配置ID     	Integer
+	返回结果:
+	{"success":true,"map":{“msg”:“删除门店配置成功！”}}	
+	
+
+3.24 修改产品配置
+	接口地址  /goodsConfig.do
+	controlType	：update
+	参数名称				别名	  		类型    			备注
+	target_goods_id 	对方产品ID     String
+    chain_customer_id    连锁门店ID    Integer
+    goods_id             产品ID     Integer
+	返回结果:
+	{"success":true,"map":{“msg”:“修改产品配置成功！”}}	
+	
+	
+	
+3.24 修改门店配置
+	接口地址  /customerConfig.do
+	controlType	：update
+	参数名称				别名	  		类型    			备注
+	target_customer_id 	对方门店ID     String
+    customer_id         门店ID       Integer
+	返回结果:
+	{"success":true,"map":{“msg”:“修改门店配置成功！”}}	
+	
+
+3.25 导出产品销售设置
+	接口地址  /goodsConfig.do
+	controlType	：fileExport
+	参数名称			别名	  		类型    			备注
+	返回结果:
+	filePath
+	
+3.25 导出门店配置
+	接口地址  /customerConfig.do
+	controlType	：fileExport
+	参数名称			别名	  		类型    			备注
+	返回结果:
+	filePath
+	
+3.25 销售查询修改
+	 接口地址  /sale.do 
+	 query
+	 1.新增显示列：开票价（unitprice），批发价（sellingPrice），销售成本价（retailsCostPrice），零售价（retails）
+	 2.新增总计显示：总开票价（countCostPrice1），总批发价（countWholesaleprice），总销售成本价（countRetailsCostPrice），总零售价（countRetails）
+	 3.去掉所有总盈亏显示
+	 4.销售成本1改成开票价
+	 5.总销售成本1改成总开票价
+	 
+3.26 成本管理查询修改
+	 接口地址  /sale.do 
+	 query
+	 1.新增显示列：开票价（unitprice），批发价（sellingPrice），销售成本价（retailsCostPrice），零售价（retails）
+	 2.成本价1改成开票价
+	 
+3.27 考核管理
+	 接口地址  /appraisalUser.do
+	 controlType: query
+	 参数名称			别名	  		类型    			备注
+	 time               年月								yyyy-MM
+	 name      			员工姓名
+	 employee_id        员工ID
+	 返回结果：
+	 employeeName 员工名称
+	 roleName  角色名称
+	 areaName 地区名称
+	 score 总分
+	 employee_id 员工ID
+	 time 时间
+	 
+	教育考核详情：
+	接口地址  /appraisalUser.do
+	 controlType: educateKPIScoreDetail
+	 参数名称			别名	  		类型    			备注
+	 time               年月								yyyy-MM
+	 employee_id        员工ID
+	 pageSize		   每次返回条数
+	 pageNumber		   第几次请求
+	 返回结果：
+	 资料名称:document_name
+	 要求播放次数：require_play_number
+	 实际播放次数：play_number
+	 要求比值:require_ratio
+	 实际比值：actual_ratio
+	 
+	 销量考核详情：
+	 controlType: goodsSaleScoreDetail
+	 参数名称			别名	  		类型    			备注
+	 time               年月								yyyy-MM
+	 employee_id        员工ID
+	 pageSize		   每次返回条数
+	 pageNumber		   第几次请求
+	 返回结果：
+	 产品ID：goods_id
+	 产品名称：goods_name
+	 产品规格：specification
+	 客户名称：customer_name
+	 要求铺点数：require_build_sell_count
+	 实际铺点数：build_sell_count
+	 要求销售额：require_money
+	 实际销售额：money
+	 铺点数要求比值：build_sell_count_require_ratio
+	 铺点数实际比值：build_sell_count_actual_ratio
+	 销售额要求比值：money_require_ratio
+	 销售额实际比值：money_actual_ratio
+	 
+	 
+	 
+	 维护考核详情
+	 controlType: customerSaleScoreDetail
+	 参数名称			别名	  		类型    			备注
+	 time               年月								yyyy-MM
+	 employee_id        员工ID
+	 pageSize		   每次返回条数
+	 pageNumber		   第几次请求
+	 返回结果：
+	 产品ID：goods_id
+	 产品名称：goods_name
+	 产品规格：specification
+	 门店名称：customer_name
+	 要求平均加权价：require_weighted_price
+	 要求陈列面：require_display_surface
+	 要求陈列数：require_display_number
+	 平均加权价要求比值：weighted_price_require_ratio
+	 陈列面要求比值：display_surface_require_ratio
+	 陈列数要求比值：display_number_require_ratio
+	 实际平均加权价比值：weighted_price_ratio
+	 实际陈列面比值：display_surface_ratio
+	 实际陈列数比值：display_number_ratio
+	 
+	 	 
+	 导出考核管理列表：
+	 接口地址  /appraisalUser.do
+	 controlType：fileExport
+	 参数名称			别名	  		类型    			备注
+	 time               年月								yyyy-MM
+	 返回结果:
+	 filePath    
+	 
+	 
+	 导出教育考核详情
+	 接口地址  /appraisalUser.do
+	 controlType：exportKPIScoreDetail
+	 参数名称			别名	  		类型    			备注
+	 time               年月								yyyy-MM
+	 exportType        导出类型    		String       		传固定值：educateKPIScoreDetail 
+	 employee_id        员工Id          Integer
+	 返回结果:
+	 filePath 
+	 
+	 
+	 导出销量考核详情
+	 接口地址  /appraisalUser.do
+	 controlType：exportKPIScoreDetail
+	 参数名称			别名	  		类型    			备注
+	 time               年月								yyyy-MM
+	 exportType        导出类型    		String       		传固定值：goodsSaleScoreDetail 
+	 employee_id        员工Id          Integer
+	 返回结果:
+	 filePath 
+     	 
+     导出销量考核详情
+	 接口地址  /appraisalUser.do
+	 controlType：customerSaleScoreDetail
+	 参数名称			别名	  			类型    			备注
+	 time               年月						yyyy-MM
+	 exportType        导出类型    		String      传固定值：goodsSaleScoreDetail 
+	 employee_id        员工Id        Integer
+	 返回结果:
+	 filePath 
+	 
+	 
+	/saleStatistics.do
+ 	todayList:本期数据
+	lastList:同比数据
+	monthYears:本期年月
+	lastMonthYears:同比年月
+	rateOfRise:增长率
+	todayYearSale:本期总销售额(万元)
+	lastYearSale:同比总销售额(万元)
+	todayYear:本期时间
+	lastYear:同比时间
+          
+	拜访计划状态
+	 0：未提交，
+	 1：已审核，
+	 2：已驳回，
+	 3：已提交，
+	 4：已修改
+	 
+	接口地址： documents.do
+	controlType:queryEducate
+	 参数名称			别名	  			类型    			备注
+	 pageSize		   每次返回条数                        int
+	 pageNumber		   第几次请求                            int
+	 document_id     资料ID			int
+	 employee_id   宣传人员Id          int
+	 startDate		开始日期                                    String
+	 endDate 		结束日期			String
+	 返回结果：
+	 upload_employee  上传人
+	 play_start_time   打开日期
+	 time 时段
+	 duration 时长
+	 employee 宣传人员
+	 update_time  更新时间
+	 document_size 下载次数
+	 play_number 播放次数
+	 
+	接口地址： employee.do
+	 查询宣传人员：
+	 {"controlType":"query","id":1}
+	 
+	 
+	 
+
+	 
+	 
+	 
+	 
+	 
+	  
+

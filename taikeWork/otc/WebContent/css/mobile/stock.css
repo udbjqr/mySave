@@ -1,0 +1,50 @@
+.profile dt.stockphoto{
+    font-size: 0;
+    width:20%;
+}
+.stockphoto img{
+width:6rem;
+max-height:8rem;
+}
+.stockinfo{
+    padding-left: 1.5rem;
+}
+.stock_title{
+    font-size: 1.4rem;
+    color: #04B03A;
+}
+.stock_Lt{
+    font-size: 1.3rem;
+    margin-top:.4rem;
+    float: left;
+     color: #AFB3B7;
+}
+.stock_Lt i{
+    font-style: normal;
+    color: #E8641A;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+.stock_Rt{
+    font-size: 1.1rem;
+    margin-top:.4rem;
+    float: right;
+    margin-right:1rem;
+     color: #AFB3B7;
+}
+.batch_num{
+    color: #AFB3B7;
+    font-size: 1.1rem
+}
+
+.supplier{
+
+color: #AFB3B7;
+    font-size: 1.1rem
+}
+.specification{
+clear:both;
+color: #AFB3B7;
+font-size: 1.1rem
+}
+

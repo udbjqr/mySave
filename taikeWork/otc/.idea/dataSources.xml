@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="otc@192.168.10.90" uuid="dbbeddd3-7c64-4cad-8576-779de98d183b">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://192.168.10.90:1433;databaseName=otc</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="@192.168.10.93" uuid="954a185b-6a56-4427-9d80-37e33ecea3c2">
+      <driver-ref>oracle</driver-ref>
+      <synchronize>true</synchronize>
+      <auto-commit>false</auto-commit>
+      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+      <jdbc-url>jdbc:oracle:thin:@192.168.10.93:1521:orcl</jdbc-url>
+    </data-source>
+  </component>
+</project>

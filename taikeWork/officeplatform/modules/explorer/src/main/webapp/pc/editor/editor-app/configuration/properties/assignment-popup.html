@@ -1,0 +1,80 @@
+<div class="modal" ng-controller="KisBpmAssignmentPopupCtrl">
+    <div class="modal-dialog" style="background: #fff;">
+        <div class="modal-content" style="box-shadow: 0 5px 15px rgba(0,0,0,.0);">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="close()">&times;</button>
+                <!--<h2 translate>PROPERTY.ASSIGNMENT.TITLE</h2>-->
+                <span translate>PROPERTY.ASSIGNMENT.TITLE</span>
+            </div>
+            <div class="modal-body">
+            
+            	<div class="row row-no-gutter">
+            		<div class="form-group">
+            			<label for="assigneeField">{{'PROPERTY.ASSIGNMENT.ASSIGNEE' | translate}}</label>
+            			<input type="text" id="assigneeField" class="form-control" ng-model="assignment.assignee" placeholder="{{'PROPERTY.ASSIGNMENT.ASSIGNEE_PLACEHOLDER' | translate}}" />
+                        <div class="modal-select">
+                            <div ng-repeat="i in thatselect.child" class="PersonnelList">
+                                <p>
+                                    <span ng-click="setlistvalue(i.name,i.id,'D')">{{i.name}}</span>
+                                    <span class="showlist" ng-click="getlist(i.id,i.type)">
+                                        {{showlist == i.id ? '∨' : '>'}}
+                                    </span>
+                                </p>
+                                <ul ng-if="showlist == i.id" 
+                                class="deptid" 
+                                ng-include="'recursion'">
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="modal-select">
+                            <ul class="deptid">
+                                <li ng-repeat="i in valueListName track by $index">{{i}}</li>
+                            </ul>
+                        </div>
+                    </div>
+            	</div>
+            	
+                <!--<div class="row row-no-gutter">
+                    <div class="form-group">
+                    	<label for="userField">{{'PROPERTY.ASSIGNMENT.CANDIDATE_USERS' | translate}}</label>
+                        <div ng-repeat="candidateUser in assignment.candidateUsers">
+            	            <input id="userField" class="form-control" type="text" ng-model="candidateUser.value" />
+            	            <i class="glyphicon glyphicon-minus clickable-property" ng-click="removeCandidateUserValue($index)"></i>
+            	            <i ng-if="$index == (assignment.candidateUsers.length - 1)" class="glyphicon glyphicon-plus clickable-property" ng-click="addCandidateUserValue($index)"></i>
+                        </div>
+                   	</div>-->
+            
+                    <!--<div class="form-group">
+                    	<label for="groupField">{{'PROPERTY.ASSIGNMENT.CANDIDATE_GROUPS' | translate}}</label>
+                        <div ng-repeat="candidateGroup in assignment.candidateGroups">
+            	          	<input id="groupField" class="form-control" type="text" ng-model="candidateGroup.value" />
+            	          	<i class="glyphicon glyphicon-minus clickable-property" ng-click="removeCandidateGroupValue($index)"></i>
+            	          	<i ng-if="$index == (assignment.candidateGroups.length - 1)" class="glyphicon glyphicon-plus clickable-property" ng-click="addCandidateGroupValue($index)"></i>
+                        </div>
+                    </div>-->
+                </div>
+            
+            </div>
+            <div class="modal-footer">
+                <button ng-click="close()" class="btn btn-primary" translate>ACTION.CANCEL</button>
+                <button ng-click="save()" class="btn btn-primary" translate>ACTION.SAVE</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="recursion" type="text/ng-template">
+    <li ng-repeat="item in ctrm">
+        <span ng-click="setlistvalue(item.name,item.id,item.type)">{{item.name}}</span>
+        <span class="showlist" ng-click="getlistul(item.id,item.type,item)" ng-if="i.type!='user'">
+            {{item.showhide? '∨' : '>'}}
+        </span>
+        <ul 
+        ng-if="item.child&&item.showhide" 
+        ng-include="'recursion'"
+        class="deptid"
+        ng-init="ctrm = item.child">
+        </ul>
+    </li>
+</script>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+  
+<mapper namespace="org.activiti.engine.impl.persistence.entity.GroupEntity">
+
+  <!-- GROUP INSERT -->
+
+  <insert id="insertGroup" parameterType="org.activiti.engine.impl.persistence.entity.GroupEntity">
+    insert into department (id, revision, dept_name, dept_type)
+    values (
+      #{id ,jdbcType=VARCHAR},
+      1, 
+      #{name ,jdbcType=VARCHAR},
+      #{type ,jdbcType=VARCHAR}
+    )
+  </insert>
+
+  <insert id="bulkInsertGroup" parameterType="java.util.List">
+    insert into department (id, revision, dept_name, dept_type)
+    values 
+      <foreach collection="list" item="group" index="index" separator=",">
+        (#{group.id ,jdbcType=VARCHAR},
+         1,
+         #{group.name ,jdbcType=VARCHAR},
+         #{group.type ,jdbcType=VARCHAR})
+      </foreach>
+  </insert>
+
+  <insert id="bulkInsertGroup_oracle" parameterType="java.util.List">
+    INSERT ALL 
+      <foreach collection="list" item="group" index="index">
+        INTO department (id, revision, dept_name, dept_type) VALUES
+            (#{group.id ,jdbcType=VARCHAR},
+             1,
+             #{group.name ,jdbcType=VARCHAR},
+             #{group.type ,jdbcType=VARCHAR})
+      </foreach>
+    SELECT * FROM dual
+  </insert>
+
+  <!-- GROUP UPDATE -->
+  
+  <update id="updateGroup" parameterType="org.activiti.engine.impl.persistence.entity.GroupEntity">
+    update  department set
+      revision = #{revisionNext ,jdbcType=INTEGER},
+      dept_name = #{name ,jdbcType=VARCHAR},
+      dept_type = #{type ,jdbcType=VARCHAR}
+    where id = #{id}
+       and revision = #{revision}
+  </update>
+  
+  <!-- GROUP DELETE -->
+
+  <delete id="deleteGroup" parameterType="org.activiti.engine.impl.persistence.entity.GroupEntity">
+    delete from department where id = #{id} and revision = #{revision}
+  </delete>
+
+  <!-- GROUP RESULTMAP -->
+
+  <resultMap id="groupResultMap" type="org.activiti.engine.impl.persistence.entity.GroupEntity">
+    <id property="id" column="ID" jdbcType="VARCHAR" />
+    <result property="revision" column="revision" jdbcType="INTEGER" />
+    <result property="name" column="dept_name" jdbcType="VARCHAR" />
+    <result property="type" column="dept_type" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <!-- GROUP SELECT -->
+
+  <select id="selectGroup" parameterType="string" resultMap="groupResultMap">
+    select * from department where id = #{id}
+  </select>
+    
+  <select id="selectGroupsByUserId" parameterType="org.activiti.engine.impl.db.ListQueryParameterObject" resultMap="groupResultMap">
+    select g.*
+    from department g, link_department_employee membership
+    where g.id = membership.department_id
+      and membership.employee_id = #{parameter}
+  </select>
+
+  <select id="selectGroupsByUserIdAndGroupType" parameterType="org.activiti.engine.impl.db.ListQueryParameterObject" resultMap="groupResultMap">
+    select g.*
+    from department g, link_department_employee membership
+    where g.id = membership.department_id
+      and membership.employee_id = #{parameter.userId}
+      <if test="groupType != null">
+         and g.dept_type = #{parameter.groupType}
+      </if>
+  </select>
+  
+  <select id="selectGroupByQueryCriteria" parameterType="org.activiti.engine.impl.GroupQueryImpl" resultMap="groupResultMap">
+  	${limitBefore}
+    select RES.* ${limitBetween}
+    <include refid="selectGroupByQueryCriteriaSql" />
+    ${orderBy}
+    ${limitAfter}
+  </select>
+  
+   <select id="selectGroupCountByQueryCriteria" parameterType="org.activiti.engine.impl.GroupQueryImpl" resultType="long">
+    select count(RES.id)
+    <include refid="selectGroupByQueryCriteriaSql" />
+  </select>
+  
+  <sql id="selectGroupByQueryCriteriaSql">
+    from department RES
+    <if test="userId != null">
+      inner join link_department_employee M on RES.id = M.department_id
+      inner join employee U on M.employee_id = U.id
+    </if>
+    <where>
+      <if test="id != null">
+        RES.id = #{id}
+      </if>
+      <if test="name != null">
+        and RES.employee_id = #{name}
+      </if>
+      <if test="nameLike != null">
+        and RES.employee_id like #{nameLike}${wildcardEscapeClause}
+      </if>
+      <if test="type != null">
+        and RES.dept_type = #{type}
+      </if>
+      <if test="userId != null">
+        and U.id = #{userId}
+      </if>
+      <if test="procDefId != null">
+        and exists (select ID_ from ${prefix}ACT_RU_IDENTITYLINK where PROC_DEF_ID_ = #{procDefId} and GROUP_ID_=RES.id )
+      </if>
+      
+    </where>
+  </sql>
+
+  <select id="selectGroupByNativeQuery" parameterType="java.util.Map" resultMap="groupResultMap">
+    <if test="resultType == 'LIST_PAGE'">
+      ${limitBefore}
+    </if>
+    ${sql}
+    <if test="resultType == 'LIST_PAGE'">
+      ${limitAfter}
+    </if>
+  </select>
+
+  <select id="selectGroupByNativeQuery_mssql_or_db2" parameterType="java.util.Map" resultMap="groupResultMap">
+    <if test="resultType == 'LIST_PAGE'">
+      ${limitBeforeNativeQuery}
+    </if>
+    ${sql}
+    <if test="resultType == 'LIST_PAGE'">
+      ${limitAfter}
+    </if>
+  </select>
+
+  <select id="selectGroupCountByNativeQuery" parameterType="java.util.Map" resultType="long">
+    ${sql}
+  </select>
+  
+</mapper>

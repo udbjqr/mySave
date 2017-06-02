@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>获取code-品牌俱乐部</title>
+	<meta content="text/html; charset=utf-8" http-equiv="content-type" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="apple-touch-icon-precomposed" href="imges/apple-touch-icon.png">
+
+	<link href="../css/mobile/font-awesome.min.css" type="text/css" rel="stylesheet" />
+	<link href="../css/mobile/base.css" rel="stylesheet" type="text/css" />
+	<link href="../css/mobile/mobile.css" rel="stylesheet" type="text/css" />
+     
+	<script type="text/javascript" src="../js/mobile/fontsize.js"></script>
+	<script type="text/javascript" src="../js/mobile/layer/layer.js"></script>
+	<!--弹出框js-->
+	<script src="../js/mobile/dev/jquery.js"></script>
+	<script src="../js/mobile_modules/islogin.js?v=2.1"></script>
+
+	<script type="text/javascript">
+     $(function(){
+      
+       var wxurl="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbbfff10e577b27a7&redirect_uri=http://demo.itaike.cn:8088/otc/mobile/getcodeurl.html&response_type=code&scope=snsapi_base&state=ak2017#wechat_redirect";
+           
+        
+     var code=geturl('code');
+        $("#code_num").html(code);
+		
+    
+	
+	$("#gethead").click(function(){
+    window.location.href = "https://qy.weixin.qq.com/cgi-bin/loginpage?corp_id=wxbbfff10e577b27a7&redirect_uri=http%3a%2f%2fdemo.itaike.cn%3a8088%2fotc%2fmobile%2fgetcode.html&state=ak2016&usertype=all";
+	})
+	
+	})
+         </script>
+
+
+</head>
+
+<body>
+	<!--页面主体-->
+	<div id="conter">
+
+	</div>
+	
+	<div id="code_num">
+		
+		
+	</div>
+   
+
+</body>
+
+</html>

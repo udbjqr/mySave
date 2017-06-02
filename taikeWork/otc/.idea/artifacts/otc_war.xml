@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="otc:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="otcdyanmic.war">
+      <element id="artifact" artifact-name="otc:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,83 @@
+OA项目开发设计思路
+
+一、使用框架
+  1.java 1.8 
+  2.依赖管理:maven
+  3.数据库:postgresql 9.0 以上(需要jsonb字段支持)
+  4.前端框架:PC:react+angularJS(用于activiti model) 手机端:vue 2.0
+  5.流程管理:activiti 5.22
+二、目录结构
+  1.documents  文档目录
+  2.modules		模块目录(源码)
+  	1.activiti* 这些目录为使用的activiti源码包,将源码包导入此处目的为修改源码
+  	2.explorer  OA项目代码包
+  	  1.src.main.java.com.tk 源码目录
+  	    1.common 通用对象包
+  	      1.persistence 数据持久化对象层
+  	      2.result 向前台返回数据对象
+  	      3.sql  数据库实际操作对象,针对不同数据库的数据操作类
+  	      4.util 各种单元操作对象
+  	        1.scheduler 定时执行操作对象
+  	    2.objects  业务对象包
+  	      1.eventlistener  	activiti事件监听与处理
+  	      2.expression		activiti表达式扩展与取值
+  	      3.handle			任务对应的操作方法
+  	      4.identity		身份认证相关操作,包括activiti的自定义身份认证与业务数据的身份认证
+  	      5.module 			功能模块
+  	      6.processControl	activiti流程控制
+  	    3.servlet  前台响应操作实现
+  	3.ProductionEnvironment 实际部署环境配置文件
+  	4.resources	资源目录
+  	5.webapp 存放前台代码
+  	  1.mobile  手机端代码
+  	  	1.build  通过node.js代码生成的目录代码
+  	  	2.config node.js的配置项.代码生成配置
+  	  	3.css
+  	  	4.src 	 项目源码
+  	  	5.static 静态页面源码
+  	  	6.test   测试
+  	  2.pc   pc端代码
+  	  	1.editor  流程设计器
+  	  	2.images  
+  	  	3.js    项目源码
+  	  	4.build	通过node.js代码生成的目录代码
+  	  	5.less  样式文件
+三、设计思路
+  1.与activiti对接:
+    1.接管的管理器:参考src.main.resources.activiti.cfg.xml文件
+    2.直接修改了activiti的身份认证相关sql语句,直接指向业务数据库的人员表.
+  2.流程任务操作:因为需要执行的操作在开发时是未知的,因此在设计时将此部分做为一个后续扩展.
+    1.模块:某一项功能的汇总,
+      1.一个模块对应一个表单,可修改对应表单字段与对应取值.
+      2.一个模块可以与多个操作对应
+      3.在流程当中为每一个任务选择模块和操作
+      4.根据功能模块分别查询统计
+    2.操作:分模块专用操作与通用操作.可将一个操作指定至多个模块内.
+    3.表单:表单与模块一一对应,一个模块有且只有一个表单,一个流程对象同一个模块仅能有一个表单数据.
+      1.表单可自定义设计.表单与模块对应关系决定了选择了模块即为选择好了表单.
+    4.流程:流程完全自定义,设计为简单易操作,将由用户或者操作人员简单快速设计即可调整相对应功能.
+  3.activiti仅做为流程控制使用,业务数据与人员分配将由自己代码控制,这样保证业务不被act控制.
+四、数据库表设计思路
+  由于业务数据字段的未知性,并且允许业务数据的字段随意添加和删除,因此将业务数据存储在一个jsonb数据字段当中,使用时直接映射成一个JSONObject对象使用.
+  在数据库内可以使用专用的sql语法直接更新和操作此jsonb对象.
+  目前将所有的表单数据存储在同一张表内,可根据新增加的操作对象将表分开.
+
+  数据库表结构见:documents.Postresql数据库.pdm文件
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

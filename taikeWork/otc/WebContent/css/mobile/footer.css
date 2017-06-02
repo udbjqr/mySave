@@ -1,0 +1,121 @@
+footer1 {
+    border-top: 1px solid #E7E7E7;
+    border-bottom: 1px solid #F8F8F8;
+    padding-top: 4px;
+    width: 100%;
+    height: 38px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-box-align: center;
+    -moz-box-align: justify;
+    -ms-flex-align: center;
+    justify-content: space-between;
+    align-content: center;
+    background-color: #FFF;
+}
+
+.index-nav {
+    color: #323232;
+    position: fixed;
+    bottom: 0;
+    height: 4rem;
+    width: 100%;
+    max-width:750px;
+    min-width:320px;
+    margin-left:auto;
+    margin-right:auto;		
+    margin: 0 auto;
+    background-color: #f7f7f7;
+    z-index: 100;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    -webkit-transition: opacity 200ms ease;
+    transition: opacity 200ms ease;
+}
+
+.index-nav li{
+text-align: center;
+width:33%;
+display: block;
+float:left;
+
+}
+.footer-action-icon{
+    height:1.5rem;
+    width: 2rem;
+    margin:.3rem auto .2rem auto;
+}
+
+.icon-dynamic1{
+     background-image:url("../../images/mobile/3kh.png");
+    background-repeat: no-repeat;
+    background-size: 1.6rem auto;
+}
+.icon-dynamic2{
+    background-image:url("../../images/mobile/1cp.png");
+    background-repeat: no-repeat;
+    background-size: 1.6rem auto;
+}
+.icon-dynamic3{
+    background-image:url("../../images/mobile/5user.png");
+    background-repeat: no-repeat;
+    background-size: 1.6rem auto;
+}
+.icon-dynamic4{
+    
+  background-image:url("../../images/mobile/23out.png");
+    background-repeat: no-repeat;
+    background-size: 1.6rem auto;
+}
+.icon-dynamic5{
+   
+  background-image:url("../../images/mobile/25.png");
+    background-repeat: no-repeat;
+    background-size: 1.6rem auto;
+}
+.icon-dynamic6{
+   background-image:url("../../images/mobile/24.png");
+    background-repeat: no-repeat;
+    background-size: 1.6rem auto;
+}
+.icon-dynamic_in{
+    background-image:url("../../images/mobile/22in.png");
+    background-repeat: no-repeat;
+    background-size: 1.6rem auto;
+}
+.icon-dynamic_out{
+    background-image:url("../../images/mobile/23out.png");
+    background-repeat: no-repeat;
+    background-size: 1.6rem auto;
+}
+
+.for_gaq h2{
+    font-size: 1.1rem;
+}
+.myprofild{
+position: relative;
+}
+
+
+.myprofild em{
+position: absolute;
+top:.3rem;
+right:3rem;
+background-color: #E8641B;
+color: #FFF;
+padding: .2rem;
+-moz-border-radius: 50%;
+-webkit-border-radius: 50%;
+border-radius: 50%;
+font-weight: bold;
+}
+
+#productMain{
+margin-bottom:5rem;
+}
+ 

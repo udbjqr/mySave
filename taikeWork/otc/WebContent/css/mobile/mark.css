@@ -1,0 +1,28 @@
+.infofile h2{
+    margin:1rem 0;
+}
+.marksTitle{
+height:4rem;
+line-height:4rem;
+padding-left:1rem;
+font-size: 1.3rem;
+}
+
+/* 标记  */
+body{
+   overflow: hidden; 
+}
+.mark{
+    overflow: hidden;
+}
+
+#mark .infofile dt{
+width:90%;
+}
+
+.isselect{
+background: url(../../images/mobile/31.png) no-repeat center
+}
+.check .isselect{
+    background: url(../../images/mobile/30.png) no-repeat center
+}

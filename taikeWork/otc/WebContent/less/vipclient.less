@@ -1,0 +1,155 @@
+.Timelinemain{
+    margin-top:10px;
+}
+.Timelinelist{
+    position: relative;
+    width:100%;
+    height:auto;
+    min-height:120px;
+
+
+.Timelinelog{
+content: "";
+position:absolute;
+width:56px;
+height:56px;
+-moz-border-radius: 4rem;      /* Gecko browsers */
+-webkit-border-radius: 4rem;   /* Webkit browsers */
+border-radius: 4rem;
+background-color:#Ff0;
+left:0;
+right:0;
+top:10px;
+bottom:0;
+margin:auto;
+overflow:hidden;
+img{
+    width:100%;
+}
+}
+
+.Timelinewarp{
+    display: block;
+    width:50%;
+    float: left;
+    height:100%;
+}
+
+}
+
+.lineRight{
+display: block;
+margin:40px 0px 0px 40px;    
+}
+.lineLeft{
+display: block;
+margin:40px 40px 0px 0px;
+text-align: right;    
+}
+.linecRight{
+position:relative;
+display: block;
+margin:30px 10px 0px 40px;    
+}
+.linecLeft{
+display: block;
+margin:30px 40px 0px 10px;
+position:relative;
+}
+
+.Timelinelist::before{
+  content: "";
+  position:absolute;
+  width:1px;
+  height: 100%;
+  background-color: #CCC;
+  left:0;
+  right:0;
+  margin:auto;
+}
+
+.Timelines{
+    height:100%;
+    min-height:80px;
+    border: 1px solid #E4E4E4;
+    h2{
+        border-bottom:1px solid #E4E4E4;
+        height:36px;
+        line-height: 36px;
+       margin:0px 8px;
+       padding:0px 8px;
+       label{
+           color: #DDD;
+           font-size: 13px;
+           float:right;
+       }
+    }
+    .linecontent{
+     margin:0px 8px;
+     font-size: 13px;
+     color: #666;
+    }
+}
+
+.tolinkL{
+ position:absolute;
+ right:-20px;   
+ width:20px;
+ height:20px;
+ 
+ z-index: 9;
+ top:24px;
+ 
+}
+.tolinkL::before,.tolinkL::after{
+            content: "";
+            width:0;
+            height:0;
+            display:block;
+            position:absolute;
+            right:-10;
+            top:0px;
+            border-top:10px transparent dashed;
+            border-right:10px transparent dashed;
+            border-bottom:10px transparent dashed;
+            border-left:10px white solid;
+            overflow:hidden;
+}
+.tolinkL::before{
+    left:1px;/*重要*/
+    border-left:10px #CCC solid;
+}
+.tolinkL::after{
+     border-left:10px white solid;
+}
+
+.tolinkR{
+ position:absolute;
+ left:-20px;   
+ width:20px;
+ height:20px;
+ 
+ z-index: 9;
+ top:24px;
+}
+.tolinkR::before,.tolinkR::after{
+            content: "";
+            width:0;
+            height:0;
+            display:block;
+            position:absolute;
+            right:-10;
+            top:0px;
+            border-top:10px transparent dashed;
+            border-left:10px transparent dashed;
+            border-bottom:10px transparent dashed;
+            border-right:10px white solid;
+            overflow:hidden;
+}
+.tolinkR::before{
+    right:1px;/*重要*/
+    border-right:10px #CCC solid;
+}
+.tolinkR::after{
+     border-right:10px white solid;
+}

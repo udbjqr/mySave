@@ -1,0 +1,29 @@
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0} 
+body{font: 12px Helvetica,'Avenir', Arial, sans-serif;background:#fff;-webkit-text-size-adjust:100%;} 
+html{
+        font-size:10px;
+    }
+a{color:#2d374b;text-decoration:none} 
+a:hover{color:#cd0200;text-decoration:underline} 
+em{font-style:normal} 
+li{list-style:none} 
+img{border:0;vertical-align:middle} 
+table{border-collapse:collapse;border-spacing:0} 
+p{word-wrap:break-word} 
+#app{height: 100%;width: 100%;}
+/* 页面过渡特效 */
+.expand-transition {
+ transition: all .3s ease;
+ height: 30px;
+ padding: 10px;
+ background-color: #eee;
+ overflow: hidden;
+}
+ 
+/* .expand-enter 定义进入的开始状态 */
+/* .expand-leave 定义离开的结束状态 */
+.expand-enter, .expand-leave {
+ height: 0;
+ padding: 0 10px;
+ opacity: 0;
+}

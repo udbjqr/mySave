@@ -1,0 +1,47 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="expression" class="com.tk.objects.expression.ExpressionManager">
+	</bean>
+
+
+	<bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+
+		<property name="jdbcUrl" value="jdbc:postgresql://192.168.10.198:5432/oadb"/>
+		<property name="jdbcDriver" value="org.postgresql.Driver"/>
+		<property name="jdbcUsername" value="postgres"/>
+		<property name="jdbcPassword" value="postgres"/>
+		<property name="JdbcMaxActiveConnections" value="5"/>
+
+		<property name="databaseSchemaUpdate" value="false"/>
+		<!-- 配置外部表单获得对象. -->
+		<property name="customFormEngines">
+			<list>
+				<bean class="com.tk.objects.HandleFormEngine"/>
+			</list>
+		</property>
+
+		<!--配置身份认证-->
+		<property name="customSessionFactories">
+			<list>
+				<bean class="com.tk.objects.identity.GroupManagerFactory"/>
+				<bean class="com.tk.objects.identity.UserManagerFactory"/>
+				<bean class="com.tk.objects.identity.MembershipManagerFactory"/>
+			</list>
+		</property>
+
+		<!--配置事件监听器-->
+		<property name="eventListeners">
+			<list>
+				<bean class="com.tk.objects.eventlistener.EventDistribute"/>
+			</list>
+		</property>
+
+		<!--配置表达式管理对象 -->
+		<property name="expressionManager" ref="expression">
+		</property>
+	</bean>
+
+
+</beans>

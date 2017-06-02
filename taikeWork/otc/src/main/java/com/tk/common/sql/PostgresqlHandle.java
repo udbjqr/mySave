@@ -1,0 +1,88 @@
+package com.tk.common.sql;
+
+import com.tk.common.Constant;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Properties;
+
+class PostgresqlHandle extends AbstractDataBaseHandle {
+	private static final String DB_SERVER_ADD = "DBServerAdd";
+	private static final String DB_SERVER_PORT = "DBServerPort";
+	private static final String DB_DATA_BASE_NAME = "DBDataBaseName";
+	private static final String DB_PASSWORD = "DBPassword";
+	private static final String DB_USER_NAME = "DBUserName";
+	private static final String CONNECTION_TIMEOUT = "ConnectionTimeout";
+	private static final String DB_POOL_NUM = "DBPoolNum";
+	private static final String STR_INCLUDE = "$nkt$";
+
+	private String userName = null;
+	private String password = null;
+	private String connectionURL = null;
+
+	private final SimpleDateFormat format = new SimpleDateFormat(Constant.DATEFORMAT);
+
+	PostgresqlHandle() {
+		this("");
+	}
+
+	PostgresqlHandle(String suffix) {
+		try {
+			logger.debug("初始化Postgresql" + suffix + "数据操作对象开始。");
+			Class.forName("org.postgresql.Driver");
+			Properties properties = DBHelperFactory.getProperties();
+
+			userName = properties.getProperty(DB_USER_NAME + suffix);
+			if (userName == null || userName.equals("")) {
+				throw new NullPointerException("配置值：DBUserName " + suffix + "is NULL");
+			}
+			password = properties.getProperty(DB_PASSWORD + suffix, "");
+
+			if (properties.getProperty(DB_SERVER_ADD + suffix, "").equals("")) {
+				throw new NullPointerException("配置值：DBServerAdd" + suffix + " is NULL");
+			}
+
+			connectionURL = String.format("jdbc:postgresql://%s:%s/%s",
+							properties.getProperty(DB_SERVER_ADD + suffix, ""), properties.getProperty(DB_SERVER_PORT + suffix, ""),
+							properties.getProperty(DB_DATA_BASE_NAME + suffix, ""));
+
+
+			int connectionTimeOut = Integer.parseInt(properties.getProperty(CONNECTION_TIMEOUT + suffix, "10"));
+			int maxPoolNumber = Integer.parseInt(properties.getProperty(DB_POOL_NUM + suffix, "10"));
+			pool = new ConnectionPool(maxPoolNumber, connectionTimeOut, this);
+
+			logger.trace("成功初始化postgresql数据库操作对象。");
+		} catch (Exception e) {
+			logger.error("初始化postgresJDBC出现异常:", e);
+		}
+	}
+
+	@Override
+	Connection getNewJDBCConnection() {
+		try {
+			return DriverManager.getConnection(connectionURL, userName, password);
+		} catch (SQLException e) {
+			logger.error("{}得到数据库实际连接异常。连接字串：{} 用户名：{} 密码：{}",
+							this.getClass().getName(), connectionURL, userName, password, e);
+			return null;
+		}
+	}
+
+	@Override
+	public String getString(Object obj) {
+		if (obj instanceof Date) {
+			synchronized (this) {
+				return STR_INCLUDE + format.format((Date) obj) + STR_INCLUDE;
+			}
+		}
+
+		if (obj instanceof String) {
+			return STR_INCLUDE + obj + STR_INCLUDE;
+		}
+
+		return String.valueOf(obj);
+	}
+}

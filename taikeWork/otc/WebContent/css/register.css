@@ -1,0 +1,110 @@
+@charset "UTF-8";
+.sizing {
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.cu {
+  cursor: pointer;
+}
+.ell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.clear {
+  clear: both;
+  content: "";
+  display: table;
+  zoom: 1;
+}
+.before-cle:after {
+  clear: both;
+  content: "";
+  display: table;
+  zoom: 1;
+}
+.stars:after {
+  content: "*";
+  margin-left: 10px;
+  vertical-align: sub;
+}
+.stars-t:after {
+  content: "*";
+  margin-left: 10px;
+  vertical-align: sub;
+  position: absolute;
+}
+.mb-title {
+  border-bottom: 1px solid #e4e4e4;
+  padding: 8px 0;
+  font-size: 16px;
+  color: #30a1ec;
+}
+.bd-register {
+  margin-top: 40px;
+}
+.bd-register .reg-left {
+  float: left;
+  width: 80px;
+}
+.bd-register .reg-left span {
+  display: block;
+  padding: 10px 0;
+  font-size: 13px;
+  color: #666666;
+}
+.bd-register .reg-right {
+  float: left;
+  padding-left: 20px;
+}
+.bd-register .reg-right .reg-info {
+  display: block;
+  padding: 10px 0;
+  font-size: 13px;
+  color: #666666;
+}
+.bd-register .reg-right .stars,
+.bd-register .reg-right .stars-t {
+  margin-top: 8px;
+  min-width: 280px;
+}
+.bd-register .reg-right .stars > input,
+.bd-register .reg-right .stars-t > input {
+  height: 28px;
+  width: 90%;
+  min-width: 200px;
+}
+.bd-register .reg-right .stars > textarea,
+.bd-register .reg-right .stars-t > textarea {
+  width: 252px;
+  height: 122px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border-color: #ccc;
+  padding: 10px;
+}
+.bd-register .reg-right .btn-box {
+  width: auto;
+  margin-top: 8px;
+  display: table;
+}
+.bd-register .reg-right .btn-box .btn-w {
+  width: 120px;
+  margin-right: 20px;
+}
+.bd-register .reg-right .btn-box .btn-c-o {
+  background-color: #30a1ec;
+  color: #fff;
+}
+.bd-register .reg-right .btn-box .btn-c-o:hover {
+  background-color: #1283ce;
+}
+.bd-register .reg-right .btn-box .btn-c-t {
+  border: 1px solid #009900;
+  color: #009900;
+  background-color: #fff;
+}
+.bd-register .reg-right .btn-box .btn-c-t:hover {
+  background-color: #e1e1e1;
+}

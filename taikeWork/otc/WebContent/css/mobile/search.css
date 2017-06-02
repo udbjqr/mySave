@@ -1,0 +1,53 @@
+
+
+.profile1 dt{
+    width:20%;
+    font-size: 0;
+}
+
+.profile1 dt img{
+width:8rem;
+}
+
+.profile dl.photolistwrap {
+display: table;
+}
+
+.productinfo h2{
+font-size: 1.6rem;
+color: #333;
+}
+.productinfo h2 i{
+display: inline-block;
+ background-color: #009900;
+ font-size: 1.2rem;
+ color:#FFF;
+ font-style: normal;
+ padding:.2rem .4rem;
+ -moz-border-radius: 1.8rem;      /* Gecko browsers */
+-webkit-border-radius: 1.8rem;   /* Webkit browsers */
+border-radius: 1.8rem;           /* W3C syntax */ 
+letter-spacing: .3em;
+text-indent: .3em;
+margin-left:.4rem;
+}
+
+
+.productinfo em{
+    font-size: 1.3rem;
+    text-align:left;
+    color: #999;
+}
+.downphoto {
+    position: absolute;
+    text-align: center;
+    font-size: 1.1rem;
+    background-color: #2798E8;
+    margin: .3rem 1.5rem 0 0;
+    color: #FFF;
+    text-align: center;
+    padding: .2rem;
+    float: none;
+    top: .1rem;
+    right: .5rem;
+}

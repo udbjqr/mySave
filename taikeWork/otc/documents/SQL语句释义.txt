@@ -1,0 +1,26 @@
+销售明细采集:(根据salesdtlid和goodsid进行增量复制)
+select
+a.salesdtlid 编号,a.credate 开票日期,a.customid 客户编号,a.customname 客户名称,a.entryid 企业编号,a.goodsid 药品编号,a.goodsname 药品名称,
+a.goodstype 规格,a.factoryid 生产企业编号,a.factoryname 生产企业,a.goodsunit 单位,a.goodsqty 数量,a.unitprice 单价,b.costprice 成本价1,
+'' 成本价2,'' 成本价3,a.total_line 总金额,a.goodsqty*b.COSTPRICE 成本总金额1,'' costtotal2,'' costtotal3
+from
+nherpuser.BMS_SA_DTLQRY_V a,
+nherpuser.bms_sk_costingprice_lst_v b
+where a.entryid=1 and a.goodsid=b.GOODSID and b.entryid=1 and goodsid in ()
+
+
+
+库存查询:(根据goodsid进行在线库存查询)
+
+select goodsid 药品编号,goodsname 药品名称,goodstype 药品规格,factoryid 生产企业id,factoryname 生产企业名称,goodsunit 单位,wholeprice 批发价,stgoodsqty 库存数
+from nherpuser.zx_pub_goods_price_qty_v
+where usestatus=1 and goodsid=''
+
+月销售结转：
+select goodsid 商品ID,useyear 年份,usemonth 月份,total 含税金额,goodsqty 销售数量,goodsname 商品名,
+goodstype 规格,goodsunit 单位,prodarea 生产厂家  from nherpuser.rpt_sa_goods_natural_month_v where entryid=1
+
+产品表：
+select * from nherpuser.pub_goods_v where usestatus=1
+厂商表
+select * from nherpuser.pub_company_view where companyname like '%拜耳%' and usestatus=1 and (supplyerfalg = 1 or factfalg = 1)
